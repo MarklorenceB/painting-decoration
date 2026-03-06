@@ -5,8 +5,7 @@ import {
   MapPin,
   Brush,
   Grid3X3,
-  LayoutGrid,
-  Layers,
+  PaintBucket,
   CheckCircle,
   ArrowRight,
   Phone,
@@ -34,14 +33,14 @@ export default function HomePage() {
             Jason Chapman Tiling, Painting &amp; Decorating
           </p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
-            Interior decorating and tiling in Wellington, Taunton, Tiverton and
+            Painting, decorating and tiling in Wellington, Taunton, Tiverton and
             surrounding areas
           </h1>
           <p className="text-lg text-white/90 leading-relaxed max-w-2xl mx-auto mb-8">
             Reliable, tidy work and a professional finish for homeowners across
-            the local area. Jason Chapman provides interior painting, decorating
-            and tiling completed with care, attention to detail, and respect for
-            your home.
+            the local area. Jason Chapman provides interior and exterior
+            painting, decorating and tiling completed with care, attention to
+            detail, and respect for your home.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
@@ -93,8 +92,8 @@ export default function HomePage() {
               When you choose Jason Chapman, you deal directly with the person
               carrying out the work from the first conversation to the final
               tidy-up. Every job is approached with care and completed to a high
-              standard, whether you need a single room redecorated or tiling for
-              a kitchen, bathroom, or other interior space.
+              standard, whether you need a room redecorated, exterior paintwork
+              refreshed, or tiling for a kitchen or bathroom.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
@@ -144,45 +143,46 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Services</h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: Brush,
-                title: "Interior painting",
+                title: "Interior Painting & Decorating",
                 description:
-                  "Fresh, clean finishes for walls, ceilings and woodwork in homes of all sizes.",
+                  "Fresh, clean finishes for walls, ceilings and woodwork. Careful preparation and neat, professional results.",
+                href: "/services/interior-painting-decorating",
               },
               {
-                icon: Layers,
-                title: "Interior decorating",
+                icon: PaintBucket,
+                title: "Exterior Painting",
                 description:
-                  "Careful preparation and neat, professional results that lift tired rooms and refresh your home.",
+                  "Professional exterior painting for house walls, fascias, window frames, doors and fences.",
+                href: "/services/exterior-painting",
               },
               {
                 icon: Grid3X3,
-                title: "Wall tiling",
+                title: "Wall & Floor Tiling",
                 description:
-                  "Clean, accurate wall tiling for kitchens, bathrooms and other interior areas.",
-              },
-              {
-                icon: LayoutGrid,
-                title: "Floor tiling",
-                description:
-                  "Durable, high-quality floor tiling finished neatly and professionally.",
+                  "Clean, accurate tiling for kitchens, bathrooms, splashbacks and floors.",
+                href: "/services/wall-floor-tiling",
               },
             ].map((service) => (
-              <div
+              <Link
                 key={service.title}
-                className="text-center bg-background rounded-xl p-6 border border-slate-100"
+                href={service.href}
+                className="group text-center bg-background rounded-xl p-6 border border-slate-100 hover:shadow-md transition-shadow"
               >
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 text-primary mb-4">
                   <service.icon className="h-6 w-6" />
                 </div>
-                <h3 className="font-bold mb-2">{service.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">{service.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed mb-3">
                   {service.description}
                 </p>
-              </div>
+                <span className="inline-flex items-center gap-1 text-primary text-sm font-bold group-hover:gap-2 transition-all">
+                  Learn more <ArrowRight className="h-3.5 w-3.5" />
+                </span>
+              </Link>
             ))}
           </div>
         </div>
@@ -368,7 +368,7 @@ export default function HomePage() {
                 icon: Sparkles,
                 title: "Enjoy the finished result",
                 description:
-                  "Your decorating or tiling work is completed neatly, professionally and with care.",
+                  "Your painting, decorating or tiling work is completed neatly, professionally and with care.",
               },
             ].map((item) => (
               <div key={item.step} className="text-center">
@@ -399,7 +399,7 @@ export default function HomePage() {
               {
                 question: "What kind of work do you take on?",
                 answer:
-                  "Interior painting, decorating and tiling for homes, from single rooms to larger interior projects.",
+                  "Interior and exterior painting, decorating and tiling for homes, from single rooms to larger projects.",
               },
               {
                 question: "Which areas do you cover?",
@@ -409,7 +409,7 @@ export default function HomePage() {
               {
                 question: "Do you do exterior painting?",
                 answer:
-                  "This website is focused on interior decorating and tiling only.",
+                  "Yes. Jason provides exterior painting for homes in the local area, including house walls, fascias, soffits, window frames and fences. See the exterior painting page for more details.",
               },
               {
                 question: "How do I get a quote?",
@@ -438,7 +438,7 @@ export default function HomePage() {
       <section className="bg-primary text-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Need an interior decorator or tiler?
+            Need a painter, decorator or tiler?
           </h2>
           <p className="text-white/90 mb-8 text-lg">
             Get in touch today to discuss your project and request a quote.

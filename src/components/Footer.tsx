@@ -13,7 +13,7 @@ export default function Footer() {
             </span>
           </div>
           <p className="max-w-sm">
-            Interior decorating and tiling for homes in Wellington, Taunton,
+            Painting, decorating and tiling for homes in Wellington, Taunton,
             Tiverton and surrounding areas.
           </p>
         </div>
@@ -27,8 +27,18 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/services" className="hover:text-primary transition-colors">
-                Services
+              <Link href="/services/interior-painting-decorating" className="hover:text-primary transition-colors">
+                Interior Painting & Decorating
+              </Link>
+            </li>
+            <li>
+              <Link href="/services/exterior-painting" className="hover:text-primary transition-colors">
+                Exterior Painting
+              </Link>
+            </li>
+            <li>
+              <Link href="/services/wall-floor-tiling" className="hover:text-primary transition-colors">
+                Wall & Floor Tiling
               </Link>
             </li>
             <li>

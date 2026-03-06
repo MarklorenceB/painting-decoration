@@ -119,7 +119,8 @@ export default function ContactPage() {
                         <option value="" disabled>
                           Select a service
                         </option>
-                        <option>Interior decorating</option>
+                        <option>Interior painting & decorating</option>
+                        <option>Exterior painting</option>
                         <option>Wall tiling</option>
                         <option>Floor tiling</option>
                         <option>Not sure yet</option>
