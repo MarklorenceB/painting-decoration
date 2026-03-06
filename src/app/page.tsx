@@ -1,156 +1,102 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
+  Star,
+  MapPin,
   Brush,
   Grid3X3,
+  LayoutGrid,
   Layers,
-  Home,
-  ShieldCheck,
   CheckCircle,
-  Star,
-  Phone,
-  Mail,
   ArrowRight,
+  Phone,
+  MessageCircle,
+  ClipboardCheck,
+  Sparkles,
+  ChevronDown,
 } from "lucide-react";
-
-const services = [
-  {
-    icon: Brush,
-    title: "Painting & Decorating",
-    description:
-      "High-quality interior and exterior finishes using only the finest premium paint brands.",
-  },
-  {
-    icon: Grid3X3,
-    title: "Tiling Services",
-    description:
-      "Precision wall and floor tiling for luxury kitchens, bathrooms, and utility areas.",
-  },
-  {
-    icon: Layers,
-    title: "Wooden Flooring",
-    description:
-      "Expert installation and restoration of solid wood, engineered, and laminate flooring.",
-  },
-  {
-    icon: Home,
-    title: "Exterior Painting",
-    description:
-      "Weather-resistant coatings and masonry painting to protect and beautify your exterior.",
-  },
-];
-
-const testimonials = [
-  {
-    text: "The attention to detail was exceptional. Our living room looks better than when we first moved in. Professional, clean, and highly recommended.",
-    name: "Sarah Thompson",
-    role: "Interior Design Project",
-    stars: 5,
-  },
-  {
-    text: "Sorted out our exterior masonry and the finish is flawless. Very impressed with the speed and tidiness of the work.",
-    name: "James Wilson",
-    role: "Exterior Renovation",
-    stars: 5,
-  },
-  {
-    text: "Excellent tiling work in our kitchen. Perfectly aligned and finished with great care. A true craftsman.",
-    name: "Emma Richards",
-    role: "Kitchen Tiling",
-    stars: 5,
-  },
-];
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-wider uppercase bg-primary/10 text-primary rounded-full">
-              Local Master Decorator
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-tight">
-              Professional
-              <br />
-              Painting &amp;{" "}
-              <span className="text-primary">Decorating</span>
-            </h1>
-            <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-lg">
-              Elevating homes with meticulous attention to detail. Experience the
-              premium touch of a dedicated, multi-skilled professional
-              specializing in high-end finishes.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg text-sm font-bold transition-all"
-              >
-                Get a Free Quote
-              </Link>
-              <Link
-                href="/gallery"
-                className="border border-slate-300 hover:border-primary hover:text-primary px-6 py-3 rounded-lg text-sm font-bold transition-all"
-              >
-                View Our Gallery
-              </Link>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="relative rounded-xl overflow-hidden aspect-[4/3] shadow-2xl">
-              <Image
-                src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80"
-                alt="Modern interior with freshly painted walls"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-            <div className="absolute bottom-4 left-4 bg-white rounded-lg px-4 py-3 shadow-lg flex items-center gap-3">
-              <ShieldCheck className="h-5 w-5 text-green-500" />
-              <div>
-                <p className="text-sm font-bold">Fully Insured</p>
-                <p className="text-xs text-slate-500">Professional Guarantee</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <span className="text-primary text-sm font-bold uppercase tracking-widest">
-            Our Expertise
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-4">
-            Meticulous Craftsmanship
-          </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto mb-12">
-            Whether it&apos;s a single room or a full property renovation, we bring
-            the same level of precision and care to every project.
+      {/* 1. Full-bleed Hero */}
+      <section className="relative min-h-[70vh] flex items-center justify-center">
+        <Image
+          src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&q=80"
+          alt="Beautifully decorated interior living space"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto py-16">
+          <p className="text-sm font-semibold tracking-widest uppercase mb-4">
+            Jason Chapman Tiling, Painting &amp; Decorating
           </p>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service) => (
-              <div key={service.title} className="text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 text-primary mb-4">
-                  <service.icon className="h-6 w-6" />
-                </div>
-                <h3 className="font-bold mb-2">{service.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            ))}
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+            Interior decorating and tiling in Wellington, Taunton, Tiverton and
+            surrounding areas
+          </h1>
+          <p className="text-lg text-white/90 leading-relaxed max-w-2xl mx-auto mb-8">
+            Reliable, tidy work and a professional finish for homeowners across
+            the local area. Jason Chapman provides interior painting, decorating
+            and tiling completed with care, attention to detail, and respect for
+            your home.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-bold transition-colors"
+            >
+              Request a quote
+            </Link>
+            <Link
+              href="tel:07473124611"
+              className="border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-lg font-bold transition-colors flex items-center gap-2"
+            >
+              <Phone className="h-4 w-4" />
+              Call 07473 124611
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Personal Touch Section */}
+      {/* 2. Trust Strip */}
+      <section className="bg-white border-y border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-700 font-medium">
+            <span className="flex items-center gap-1.5">
+              <Star className="h-4 w-4 text-amber-400 fill-amber-400" />
+              5/5 on MyBuilder
+            </span>
+            <span className="hidden sm:inline text-slate-300">|</span>
+            <span>91 reviews</span>
+            <span className="hidden sm:inline text-slate-300">|</span>
+            <span>~20 years&apos; experience</span>
+            <span className="hidden sm:inline text-slate-300">|</span>
+            <span className="flex items-center gap-1.5">
+              <MapPin className="h-4 w-4 text-primary" />
+              Wellington, Somerset
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. A local tradesman who takes pride in the finish */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              A local tradesman who takes pride in the finish
+            </h2>
+            <p className="text-slate-600 leading-relaxed text-lg">
+              When you choose Jason Chapman, you deal directly with the person
+              carrying out the work from the first conversation to the final
+              tidy-up. Every job is approached with care and completed to a high
+              standard, whether you need a single room redecorated or tiling for
+              a kitchen, bathroom, or other interior space.
+            </p>
+          </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
               <div className="rounded-xl overflow-hidden aspect-[3/4] relative">
@@ -189,107 +135,320 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              The Personal Touch
-            </h2>
-            <p className="text-slate-600 mb-8 leading-relaxed">
-              As a dedicated &apos;one-man band&apos;, I take immense pride in every
-              stroke of the brush. Unlike larger firms, you&apos;ll deal directly
-              with me from the initial quote to the final cleanup.
-            </p>
-            <ul className="space-y-4 mb-8">
-              {[
-                "Consistency across the entire project",
-                "Clean, tidy, and respectful of your home",
-                "Professional advice on colors and finishes",
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-primary shrink-0" />
-                  <span className="font-medium">{item}</span>
-                </li>
-              ))}
-            </ul>
-            <blockquote className="border-l-4 border-primary pl-4 italic text-slate-700">
-              <p className="mb-2">
-                &ldquo;Quality isn&apos;t just a goal; it&apos;s my signature.&rdquo;
-              </p>
-              <cite className="text-sm text-slate-500 not-italic">
-                &mdash; Founder, Signature Finishes
-              </cite>
-            </blockquote>
-          </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* 4. Services */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Trusted by Local Homeowners
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((t) => (
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Services</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Brush,
+                title: "Interior painting",
+                description:
+                  "Fresh, clean finishes for walls, ceilings and woodwork in homes of all sizes.",
+              },
+              {
+                icon: Layers,
+                title: "Interior decorating",
+                description:
+                  "Careful preparation and neat, professional results that lift tired rooms and refresh your home.",
+              },
+              {
+                icon: Grid3X3,
+                title: "Wall tiling",
+                description:
+                  "Clean, accurate wall tiling for kitchens, bathrooms and other interior areas.",
+              },
+              {
+                icon: LayoutGrid,
+                title: "Floor tiling",
+                description:
+                  "Durable, high-quality floor tiling finished neatly and professionally.",
+              },
+            ].map((service) => (
               <div
-                key={t.name}
-                className="bg-background rounded-xl p-6 border border-slate-100"
+                key={service.title}
+                className="text-center bg-background rounded-xl p-6 border border-slate-100"
               >
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.stars }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-5 w-5 text-amber-400 fill-amber-400"
-                    />
-                  ))}
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-primary/10 text-primary mb-4">
+                  <service.icon className="h-6 w-6" />
                 </div>
-                <p className="text-slate-600 text-sm italic mb-6 leading-relaxed">
-                  &ldquo;{t.text}&rdquo;
+                <h3 className="font-bold mb-2">{service.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {service.description}
                 </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-500">
-                    {t.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </div>
-                  <div>
-                    <p className="font-bold text-sm">{t.name}</p>
-                    <p className="text-xs text-slate-500">{t.role}</p>
-                  </div>
-                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-primary text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="max-w-xl text-center md:text-left">
-            <h2 className="text-3xl font-bold mb-4">
-              Ready to transform your home?
+      {/* 5. Why homeowners choose Jason */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Why homeowners choose Jason
             </h2>
-            <p className="text-white/80 mb-6">
-              Get in touch today for a free, no-obligation consultation. I
-              provide detailed quotes and professional advice for any scale of
-              project.
+            <p className="text-slate-600 leading-relaxed text-lg">
+              Jason is known for reliable service, tidy working and close
+              attention to detail. You get direct communication, honest advice
+              and a professional finish from start to finish.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start text-sm">
-              <span className="flex items-center gap-2">
-                <Phone className="h-4 w-4" /> 01234 567 890
-              </span>
-              <span className="flex items-center gap-2">
-                <Mail className="h-4 w-4" /> hello@signaturefinishes.com
-              </span>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {[
+              "Direct, one-to-one service",
+              "Clean and tidy while working",
+              "Attention to detail",
+              "Quality finish",
+            ].map((point) => (
+              <div key={point} className="text-center">
+                <CheckCircle className="h-8 w-8 text-primary mx-auto mb-3" />
+                <p className="font-semibold">{point}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Trusted by local homeowners */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Trusted by local homeowners
+            </h2>
+            <p className="text-slate-600 leading-relaxed">
+              Jason is rated 5/5 on MyBuilder, with 91 reviews currently
+              showing. Recent customers highlight quick and reliable quoting,
+              tidy working methods, and finished work they are really pleased
+              with.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 mb-10">
+            {[
+              {
+                title: "Reliable from the start",
+                description:
+                  "Clear communication and dependable service from quote to finish.",
+              },
+              {
+                title: "Clean and tidy in your home",
+                description:
+                  "Respectful working methods and a neat approach throughout the job.",
+              },
+              {
+                title: "A finish you'll be happy with",
+                description:
+                  "Care and attention to the details that make the finished result look right.",
+              },
+            ].map((theme) => (
+              <div
+                key={theme.title}
+                className="bg-background rounded-xl p-6 border border-slate-100"
+              >
+                <div className="flex gap-1 mb-3">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      className="h-4 w-4 text-amber-400 fill-amber-400"
+                    />
+                  ))}
+                </div>
+                <h3 className="font-bold mb-2">{theme.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {theme.description}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <Link
+              href="https://www.mybuilder.com/profile/jason_chapman_tiling_painting_decorating/reviews"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-primary font-bold hover:underline"
+            >
+              Read reviews on MyBuilder
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Recent Work preview */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+            Recent work
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            <div className="rounded-xl overflow-hidden aspect-[4/3] relative">
+              <Image
+                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80"
+                alt="Recently decorated interior room"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden aspect-[4/3] relative">
+              <Image
+                src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80"
+                alt="Tiled bathroom wall"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden aspect-[4/3] relative">
+              <Image
+                src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80"
+                alt="Freshly tiled kitchen"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
+          <div className="text-center">
+            <Link
+              href="/gallery"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-bold transition-colors"
+            >
+              View gallery
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Areas Covered */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Areas covered
+          </h2>
+          <p className="text-slate-600 leading-relaxed text-lg">
+            Based in Wellington, Somerset, Jason covers Wellington, Taunton,
+            Tiverton and surrounding areas. If you are nearby and not sure
+            whether your location is covered, get in touch.
+          </p>
+        </div>
+      </section>
+
+      {/* 9. How It Works */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            How it works
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {[
+              {
+                step: 1,
+                icon: MessageCircle,
+                title: "Get in touch",
+                description:
+                  "Call or send a message with a few details about the work you need done.",
+              },
+              {
+                step: 2,
+                icon: ClipboardCheck,
+                title: "Receive your quote",
+                description:
+                  "Jason will discuss the job and provide a clear quote.",
+              },
+              {
+                step: 3,
+                icon: Sparkles,
+                title: "Enjoy the finished result",
+                description:
+                  "Your decorating or tiling work is completed neatly, professionally and with care.",
+              },
+            ].map((item) => (
+              <div key={item.step} className="text-center">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary mb-4">
+                  <item.icon className="h-6 w-6" />
+                </div>
+                <h3 className="font-bold mb-2">
+                  <span className="text-primary mr-1">{item.step}.</span>
+                  {item.title}
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. FAQs */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+            Frequently asked questions
+          </h2>
+          <div className="space-y-4">
+            {[
+              {
+                question: "What kind of work do you take on?",
+                answer:
+                  "Interior painting, decorating and tiling for homes, from single rooms to larger interior projects.",
+              },
+              {
+                question: "Which areas do you cover?",
+                answer:
+                  "Wellington, Taunton, Tiverton and surrounding areas.",
+              },
+              {
+                question: "Do you do exterior painting?",
+                answer:
+                  "This website is focused on interior decorating and tiling only.",
+              },
+              {
+                question: "How do I get a quote?",
+                answer:
+                  "Call 07473 124611 or use the contact form with a few details about the job.",
+              },
+            ].map((faq) => (
+              <details
+                key={faq.question}
+                className="group border border-slate-200 rounded-lg"
+              >
+                <summary className="flex items-center justify-between cursor-pointer px-6 py-4 font-semibold">
+                  {faq.question}
+                  <ChevronDown className="h-5 w-5 text-slate-400 transition-transform group-open:rotate-180" />
+                </summary>
+                <div className="px-6 pb-4 text-slate-600 leading-relaxed">
+                  {faq.answer}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 11. Final CTA */}
+      <section className="bg-primary text-white py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Need an interior decorator or tiler?
+          </h2>
+          <p className="text-white/90 mb-8 text-lg">
+            Get in touch today to discuss your project and request a quote.
+          </p>
           <Link
             href="/contact"
-            className="bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-slate-50 transition-colors shadow-lg flex items-center gap-2"
+            className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-slate-50 transition-colors"
           >
-            Request Your Free Quote <ArrowRight className="h-4 w-4" />
+            Contact Jason
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

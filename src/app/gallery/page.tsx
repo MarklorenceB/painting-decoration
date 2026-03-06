@@ -2,83 +2,69 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Star } from "lucide-react";
+import Link from "next/link";
+import { Star, ArrowRight } from "lucide-react";
 
-type Category = "all" | "painting" | "flooring" | "tiling";
+type Category = "all" | "decorating" | "tiling";
 
 const projects = [
   {
-    title: "Living Room Refresh",
-    description: "Full interior emulsion with feature wall in deep navy.",
-    category: "painting" as const,
+    title: "Living room refresh",
+    description:
+      "A clean, bright decorating job to update a busy living space.",
+    category: "decorating" as const,
     image:
       "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
   },
   {
-    title: "Hardwood Installation",
-    description: "Premium European Oak with satin protective finish.",
-    category: "flooring" as const,
+    title: "Hallway and landing repaint",
+    description:
+      "Careful preparation and a durable finish for a high-traffic area.",
+    category: "decorating" as const,
     image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80",
+      "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=600&q=80",
   },
   {
-    title: "Modern Subway Tiling",
-    description: "Full bathroom regrout and new ceramic installation.",
+    title: "Bedroom redecoration",
+    description:
+      "Freshly finished walls, ceilings and woodwork for a smarter, more comfortable room.",
+    category: "decorating" as const,
+    image:
+      "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&q=80",
+  },
+  {
+    title: "Kitchen splashback tiling",
+    description:
+      "Neat wall tiling to finish the kitchen cleanly and professionally.",
     category: "tiling" as const,
     image:
       "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80",
   },
   {
-    title: "Kitchen Cabinet Facelift",
-    description: "Satin finish spray painting for a factory-new look.",
-    category: "painting" as const,
-    image:
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80",
-  },
-  {
-    title: "Commercial Vinyl",
-    description: "High-durability LVT flooring for boutique office.",
-    category: "flooring" as const,
-    image:
-      "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=600&q=80",
-  },
-  {
-    title: "Victorian Hallway",
-    description: "Restoration and new geometric tile layout.",
+    title: "Bathroom wall tiling",
+    description:
+      "Careful fitting and a tidy final finish for a clean, modern look.",
     category: "tiling" as const,
     image:
       "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80",
   },
-];
-
-const testimonials = [
   {
-    text: "DecorMaster Pro completely transformed our Victorian home. Their attention to detail on the intricate molding was second to none. Reliable, clean, and highly professional.",
-    name: "Sarah Jenkins",
-    role: "Residential Client",
-  },
-  {
-    text: "We used them for our new office flooring and painting. They worked through the weekend to ensure we could open on Monday. Exceptional work ethic and finish.",
-    name: "Marcus Reed",
-    role: "Reed & Co. Legal",
-  },
-  {
-    text: "The bathroom tiling is flawless. They helped us choose the right grout color to match our tiles and the result is stunning. Highly recommended for any home project.",
-    name: "Emma Boyd",
-    role: "Residential Client",
+    title: "Floor tiling project",
+    description: "Well-laid floor tiles completed to a high standard.",
+    category: "tiling" as const,
+    image:
+      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80",
   },
 ];
 
 const filters: { label: string; value: Category }[] = [
-  { label: "All Projects", value: "all" },
-  { label: "Painting", value: "painting" },
-  { label: "Flooring", value: "flooring" },
+  { label: "All", value: "all" },
+  { label: "Decorating", value: "decorating" },
   { label: "Tiling", value: "tiling" },
 ];
 
 const categoryColors: Record<string, string> = {
-  painting: "bg-primary",
-  flooring: "bg-primary",
+  decorating: "bg-primary",
   tiling: "bg-primary",
 };
 
@@ -86,18 +72,20 @@ export default function GalleryPage() {
   const [active, setActive] = useState<Category>("all");
 
   const filtered =
-    active === "all" ? projects : projects.filter((p) => p.category === active);
+    active === "all"
+      ? projects
+      : projects.filter((p) => p.category === active);
 
   return (
     <>
       {/* Hero */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
-          Our Project Gallery
+          Recent decorating and tiling work
         </h1>
         <p className="text-lg text-slate-600 max-w-2xl mb-8">
-          Excellence in every brushstroke. Explore our recent residential and
-          commercial transformations across painting, flooring, and tiling.
+          Take a look at recent interior decorating and tiling projects
+          completed in Wellington, Taunton, Tiverton and surrounding areas.
         </p>
 
         {/* Filter Tabs */}
@@ -150,48 +138,48 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* MyBuilder Review Banner */}
+      <section className="px-4 sm:px-6 lg:px-8 pb-20">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-primary text-sm font-bold uppercase tracking-widest">
-              Testimonials
-            </span>
-            <h2 className="text-3xl font-bold mt-3">What Our Clients Say</h2>
-            <div className="w-12 h-1 bg-primary mx-auto mt-4 rounded-full" />
+          <div className="bg-primary/5 rounded-xl p-8 md:p-10 text-center">
+            <div className="flex justify-center gap-1 mb-4">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star
+                  key={i}
+                  className="h-6 w-6 text-amber-400 fill-amber-400"
+                />
+              ))}
+            </div>
+            <p className="text-lg text-slate-700 font-medium mb-4">
+              Rated 5/5 on MyBuilder, with 91 reviews currently showing.
+            </p>
+            <a
+              href="https://www.mybuilder.com/profile/jason_chapman_tiling_painting_decorating/reviews"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-primary font-bold hover:underline"
+            >
+              Read all reviews on MyBuilder
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="bg-background rounded-xl p-6 border border-slate-100"
-              >
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-5 w-5 text-amber-400 fill-amber-400"
-                    />
-                  ))}
-                </div>
-                <p className="text-slate-600 text-sm italic mb-6 leading-relaxed">
-                  &ldquo;{t.text}&rdquo;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold">
-                    {t.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </div>
-                  <div>
-                    <p className="font-bold text-sm">{t.name}</p>
-                    <p className="text-xs text-slate-500">{t.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">Like what you see?</h2>
+          <p className="text-lg text-slate-600 mb-8">
+            Get in touch to talk through your project and request a quote.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-primary/90 transition-all"
+          >
+            Contact Jason
+            <ArrowRight className="h-5 w-5" />
+          </Link>
         </div>
       </section>
     </>

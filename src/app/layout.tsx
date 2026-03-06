@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ReviewsFloatingTab from "@/components/ReviewsFloatingTab";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -11,9 +12,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Signature Finishes | Professional Painting & Decorating",
+  title: "Interior Decorating & Tiling in Wellington | Jason Chapman",
   description:
-    "Elevating homes with meticulous attention to detail. Professional painting, decorating, tiling, and flooring services.",
+    "Interior painter, decorator and tiler based in Wellington, Somerset, covering Wellington, Taunton, Tiverton and surrounding areas.",
 };
 
 export default function RootLayout({
@@ -28,6 +29,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
+          <ReviewsFloatingTab />
         </div>
       </body>
     </html>

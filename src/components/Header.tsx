@@ -23,7 +23,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-2">
             <Brush className="h-7 w-7 text-primary" />
             <span className="text-xl font-bold tracking-tight text-slate-900">
-              Signature Finishes
+              Jason Chapman
             </span>
           </Link>
 

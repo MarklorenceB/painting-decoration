@@ -3,8 +3,8 @@
 :root {
   --background: #f6f7f8;
   --foreground: #0f172a;
-  --primary: #137fec;
-  --primary-light: rgba(19, 127, 236, 0.1);
+  --primary: #fe7e04;
+  --primary-light: rgba(254, 126, 4, 0.1);
 }
 
 @theme inline {
