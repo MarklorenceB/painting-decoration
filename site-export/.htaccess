@@ -1,0 +1,22 @@
+RewriteEngine On
+RewriteBase /
+
+# Let WordPress admin, API and graphql pass through to WordPress
+RewriteRule ^wp-admin - [L]
+RewriteRule ^wp-login\.php - [L]
+RewriteRule ^wp-json - [L]
+RewriteRule ^graphql - [L]
+RewriteRule ^wp-content - [L]
+RewriteRule ^wp-includes - [L]
+
+# Serve static files if they exist
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Route clean URLs to .html files
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Fallback to 404
+RewriteRule ^ /404.html [L]

@@ -1,0 +1,5 @@
+[    7021ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://plum-gorilla-109923.hostingersite.com/services/exterior-painting/:0
+[    7049ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://plum-gorilla-109923.hostingersite.com/gallery/:0
+[    7049ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://plum-gorilla-109923.hostingersite.com/contact/:0
+[    7124ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://plum-gorilla-109923.hostingersite.com/services/wall-floor-tiling/:0
+[    9347ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://plum-gorilla-109923.hostingersite.com/services/interior-painting-decorating/:0

@@ -1,11 +1,29 @@
 "use client";
 
-import { useActionState } from "react";
-import { submitContactForm } from "./actions";
+import { useState } from "react";
+import { submitContactForm, type FormState } from "./actions";
 import { Phone, Send, Star, ArrowRight } from "lucide-react";
 
 export default function ContactPage() {
-  const [state, formAction, isPending] = useActionState(submitContactForm, null);
+  const [state, setState] = useState<FormState | null>(null);
+  const [isPending, setIsPending] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsPending(true);
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name") as string,
+      phone: formData.get("phone") as string,
+      email: formData.get("email") as string,
+      town: formData.get("town") as string,
+      service: formData.get("service") as string,
+      message: formData.get("message") as string,
+    };
+    const result = await submitContactForm(data);
+    setState(result);
+    setIsPending(false);
+  }
 
   return (
     <>
@@ -61,7 +79,7 @@ export default function ContactPage() {
                     </div>
                   )}
 
-                  <form action={formAction} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <label className="text-sm font-semibold text-slate-700">

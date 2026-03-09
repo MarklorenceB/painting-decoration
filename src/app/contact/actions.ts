@@ -1,23 +1,11 @@
-"use server";
-
-interface FormState {
+export interface FormState {
   success: boolean;
   error: string;
 }
 
 export async function submitContactForm(
-  _prevState: FormState | null,
-  formData: FormData
+  data: Record<string, string>
 ): Promise<FormState> {
-  const data = {
-    name: formData.get("name") as string,
-    phone: formData.get("phone") as string,
-    email: formData.get("email") as string,
-    town: formData.get("town") as string,
-    service: formData.get("service") as string,
-    message: formData.get("message") as string,
-  };
-
   if (!data.name || !data.message) {
     return { success: false, error: "Please fill in your name and project details." };
   }
