@@ -14,6 +14,7 @@ import {
   Sparkles,
   ChevronDown,
 } from "lucide-react";
+import ReviewsCarousel from "@/components/ReviewsCarousel";
 
 export default function HomePage() {
   return (
@@ -218,64 +219,33 @@ export default function HomePage() {
       </section>
 
       {/* 6. Trusted by local homeowners */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+          <div className="max-w-3xl mx-auto text-center mb-14">
+            <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-5">
+              <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
+              5/5 rated on MyBuilder — 91 reviews
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Trusted by local homeowners
             </h2>
             <p className="text-slate-600 leading-relaxed">
-              Jason is rated 5/5 on MyBuilder, with 91 reviews currently
-              showing. Recent customers highlight quick and reliable quoting,
+              Recent customers highlight quick and reliable quoting,
               tidy working methods, and finished work they are really pleased
               with.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 mb-10">
-            {[
-              {
-                title: "Reliable from the start",
-                description:
-                  "Clear communication and dependable service from quote to finish.",
-              },
-              {
-                title: "Clean and tidy in your home",
-                description:
-                  "Respectful working methods and a neat approach throughout the job.",
-              },
-              {
-                title: "A finish you'll be happy with",
-                description:
-                  "Care and attention to the details that make the finished result look right.",
-              },
-            ].map((theme) => (
-              <div
-                key={theme.title}
-                className="bg-background rounded-xl p-6 border border-slate-100"
-              >
-                <div className="flex gap-1 mb-3">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-4 w-4 text-amber-400 fill-amber-400"
-                    />
-                  ))}
-                </div>
-                <h3 className="font-bold mb-2">{theme.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {theme.description}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center">
+
+          <ReviewsCarousel />
+
+          <div className="text-center mt-10">
             <Link
               href="https://www.mybuilder.com/profile/jason_chapman_tiling_painting_decorating/reviews"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-primary font-bold hover:underline"
+              className="inline-flex items-center gap-2 bg-primary/10 text-primary px-6 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition-colors"
             >
-              Read reviews on MyBuilder
+              Read all reviews on MyBuilder
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
