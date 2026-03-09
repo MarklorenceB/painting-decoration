@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Brush, Phone } from "lucide-react";
+import Image from "next/image";
+import { Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -7,7 +8,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
         <div>
           <div className="flex items-center gap-2 text-white mb-6">
-            <Brush className="h-7 w-7 text-primary" />
+            <Image
+              src="/logo.jpeg"
+              alt="Jason Chapman Logo"
+              width={40}
+              height={40}
+              className="rounded-md"
+            />
             <span className="text-xl font-bold tracking-tight">
               Jason Chapman Tiling, Painting &amp; Decorating
             </span>

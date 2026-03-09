@@ -109,7 +109,7 @@ export default function HomePage() {
               </div>
               <div className="rounded-xl overflow-hidden aspect-square relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=400&q=80"
+                  src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&q=80"
                   alt="Freshly painted bedroom"
                   fill
                   className="object-cover"
@@ -119,7 +119,7 @@ export default function HomePage() {
             <div className="space-y-4 pt-8">
               <div className="rounded-xl overflow-hidden aspect-[4/3] relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80"
+                  src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=400&q=80"
                   alt="Paint brushes close up"
                   fill
                   className="object-cover"
