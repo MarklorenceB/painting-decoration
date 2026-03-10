@@ -50,7 +50,7 @@ export default async function HomePage() {
   const aboutText =
     hp?.aboutText ||
     "When you choose Jason Chapman, you deal directly with the person carrying out the work from the first conversation to the final tidy-up. Every job is approached with care and completed to a high standard, whether you need a room redecorated, exterior paintwork refreshed, or tiling for a kitchen or bathroom.";
-  const phoneNumber = hp?.phoneNumber || "07473 124611";
+  const phoneNumber = hp?.phoneNumber || "07903 197937";
   const reviewCount = hp?.mybuilderReviewCount ?? 91;
   const yearsExperience = hp?.yearsExperience ?? 20;
   const heroImageUrl =

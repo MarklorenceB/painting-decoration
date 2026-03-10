@@ -23,6 +23,10 @@ export const HOME_PAGE_QUERY = `
         mybuilderUrl
         yearsExperience
       }
+      contactPage {
+        contactPhone
+        contactAreas
+      }
     }
   }
 `;
@@ -41,6 +45,17 @@ export const SERVICE_PAGE_QUERY = `
           }
         }
         serviceDescription
+        serviceContentHeading
+        serviceContentText
+        serviceContentImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+        serviceFeatures
+        serviceCtaHeading
+        serviceCtaText
       }
     }
   }
@@ -59,7 +74,26 @@ export const GALLERY_QUERY = `
             }
           }
           galleryCategory
+          galleryDescription
         }
+      }
+    }
+  }
+`;
+
+export const CONTACT_PAGE_QUERY = `
+  query ContactPage {
+    page(id: 11, idType: DATABASE_ID) {
+      contactPage {
+        contactHeading
+        contactSubtext
+        contactPhone
+        contactAreas
+      }
+      homePage {
+        phoneNumber
+        mybuilderReviewCount
+        mybuilderUrl
       }
     }
   }

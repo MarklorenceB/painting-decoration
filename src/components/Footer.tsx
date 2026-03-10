@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone } from "lucide-react";
 
-export default function Footer() {
+export default function Footer({ phone = "07903 197937" }: { phone?: string }) {
   return (
     <footer className="bg-slate-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
@@ -76,8 +76,8 @@ export default function Footer() {
           <ul className="space-y-4 text-sm">
             <li className="flex items-center gap-3">
               <Phone className="h-4 w-4 text-primary shrink-0" />
-              <a href="tel:07473124611" className="hover:text-primary transition-colors">
-                07473 124611
+              <a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-primary transition-colors">
+                {phone}
               </a>
             </li>
           </ul>
