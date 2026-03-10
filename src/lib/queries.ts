@@ -1,26 +1,46 @@
 export const HOME_PAGE_QUERY = `
   query HomePage {
-    page(id: "/", idType: URI) {
+    page(id: 11, idType: DATABASE_ID) {
       homePage {
-        heroImage {
-          sourceUrl
-          altText
-        }
         heroHeading
         heroSubtext
+        heroImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+        aboutHeading
+        aboutText
+        aboutImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+        phoneNumber
+        mybuilderReviewCount
+        mybuilderUrl
+        yearsExperience
       }
     }
   }
 `;
 
-export const SITE_SETTINGS_QUERY = `
-  query SiteSettings {
-    page(id: "site-settings", idType: URI) {
-      siteSettings {
-        phoneNumber
-        mybuilderReviewCount
-        mybuilderUrl
-        yearsExperience
+export const SERVICE_PAGE_QUERY = `
+  query ServicePage($id: ID!) {
+    page(id: $id, idType: DATABASE_ID) {
+      title
+      servicePage {
+        serviceHeading
+        serviceSubtext
+        serviceHeroImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+        serviceDescription
       }
     }
   }
@@ -32,11 +52,13 @@ export const GALLERY_QUERY = `
       nodes {
         title
         galleryFields {
-          projectImage {
-            sourceUrl
-            altText
+          galleryImage {
+            node {
+              sourceUrl
+              altText
+            }
           }
-          projectCategory
+          galleryCategory
         }
       }
     }

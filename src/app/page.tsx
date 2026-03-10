@@ -15,15 +15,57 @@ import {
   ChevronDown,
 } from "lucide-react";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
+import { fetchGraphQL } from "@/lib/wordpress";
+import { HOME_PAGE_QUERY } from "@/lib/queries";
 
-export default function HomePage() {
+interface HomePageData {
+  page: {
+    homePage: {
+      heroHeading: string | null;
+      heroSubtext: string | null;
+      heroImage: { node: { sourceUrl: string; altText: string } } | null;
+      aboutHeading: string | null;
+      aboutText: string | null;
+      aboutImage: { node: { sourceUrl: string; altText: string } } | null;
+      phoneNumber: string | null;
+      mybuilderReviewCount: number | null;
+      mybuilderUrl: string | null;
+      yearsExperience: number | null;
+    };
+  };
+}
+
+export default async function HomePage() {
+  const data = await fetchGraphQL<HomePageData>(HOME_PAGE_QUERY);
+  const hp = data?.page?.homePage;
+
+  const heroHeading =
+    hp?.heroHeading ||
+    "Painting, decorating and tiling in Wellington, Taunton, Tiverton and surrounding areas";
+  const heroSubtext =
+    hp?.heroSubtext ||
+    "Reliable, tidy work and a professional finish for homeowners across the local area. Jason Chapman provides interior and exterior painting, decorating and tiling completed with care, attention to detail, and respect for your home.";
+  const aboutHeading =
+    hp?.aboutHeading || "A local tradesman who takes pride in the finish";
+  const aboutText =
+    hp?.aboutText ||
+    "When you choose Jason Chapman, you deal directly with the person carrying out the work from the first conversation to the final tidy-up. Every job is approached with care and completed to a high standard, whether you need a room redecorated, exterior paintwork refreshed, or tiling for a kitchen or bathroom.";
+  const phoneNumber = hp?.phoneNumber || "07473 124611";
+  const reviewCount = hp?.mybuilderReviewCount ?? 91;
+  const yearsExperience = hp?.yearsExperience ?? 20;
+  const heroImageUrl =
+    hp?.heroImage?.node?.sourceUrl ||
+    "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&q=80";
+  const heroImageAlt =
+    hp?.heroImage?.node?.altText || "Beautifully decorated interior living space";
+
   return (
     <>
       {/* 1. Full-bleed Hero */}
       <section className="relative min-h-[70vh] flex items-center justify-center">
         <Image
-          src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&q=80"
-          alt="Beautifully decorated interior living space"
+          src={heroImageUrl}
+          alt={heroImageAlt}
           fill
           className="object-cover"
           priority
@@ -34,14 +76,10 @@ export default function HomePage() {
             Jason Chapman Tiling, Painting &amp; Decorating
           </p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
-            Painting, decorating and tiling in Wellington, Taunton, Tiverton and
-            surrounding areas
+            {heroHeading}
           </h1>
           <p className="text-lg text-white/90 leading-relaxed max-w-2xl mx-auto mb-8">
-            Reliable, tidy work and a professional finish for homeowners across
-            the local area. Jason Chapman provides interior and exterior
-            painting, decorating and tiling completed with care, attention to
-            detail, and respect for your home.
+            {heroSubtext}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
@@ -51,11 +89,11 @@ export default function HomePage() {
               Request a quote
             </Link>
             <Link
-              href="tel:07473124611"
+              href={`tel:${phoneNumber.replace(/\s/g, "")}`}
               className="border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-lg font-bold transition-colors flex items-center gap-2"
             >
               <Phone className="h-4 w-4" />
-              Call 07473 124611
+              Call {phoneNumber}
             </Link>
           </div>
         </div>
@@ -70,9 +108,9 @@ export default function HomePage() {
               5/5 on MyBuilder
             </span>
             <span className="hidden sm:inline text-slate-300">|</span>
-            <span>91 reviews</span>
+            <span>{reviewCount} reviews</span>
             <span className="hidden sm:inline text-slate-300">|</span>
-            <span>~20 years&apos; experience</span>
+            <span>~{yearsExperience} years&apos; experience</span>
             <span className="hidden sm:inline text-slate-300">|</span>
             <span className="flex items-center gap-1.5">
               <MapPin className="h-4 w-4 text-primary" />
@@ -87,14 +125,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              A local tradesman who takes pride in the finish
+              {aboutHeading}
             </h2>
             <p className="text-slate-600 leading-relaxed text-lg">
-              When you choose Jason Chapman, you deal directly with the person
-              carrying out the work from the first conversation to the final
-              tidy-up. Every job is approached with care and completed to a high
-              standard, whether you need a room redecorated, exterior paintwork
-              refreshed, or tiling for a kitchen or bathroom.
+              {aboutText}
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
@@ -224,7 +258,7 @@ export default function HomePage() {
           <div className="max-w-3xl mx-auto text-center mb-14">
             <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-5">
               <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-              5/5 rated on MyBuilder — 91 reviews
+              5/5 rated on MyBuilder — {reviewCount} reviews
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Trusted by local homeowners
@@ -240,7 +274,7 @@ export default function HomePage() {
 
           <div className="text-center mt-10">
             <Link
-              href="https://www.mybuilder.com/profile/jason_chapman_tiling_painting_decorating/reviews"
+              href={hp?.mybuilderUrl || "https://www.mybuilder.com/profile/jason_chapman_tiling_painting_decorating/reviews"}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary/10 text-primary px-6 py-3 rounded-lg font-bold hover:bg-primary hover:text-white transition-colors"
@@ -383,8 +417,7 @@ export default function HomePage() {
               },
               {
                 question: "How do I get a quote?",
-                answer:
-                  "Call 07473 124611 or use the contact form with a few details about the job.",
+                answer: `Call ${phoneNumber} or use the contact form with a few details about the job.`,
               },
             ].map((faq) => (
               <details

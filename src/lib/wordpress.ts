@@ -1,6 +1,6 @@
 const WP_GRAPHQL_URL =
   process.env.WP_GRAPHQL_URL ||
-  "https://plum-gorilla-109923.hostingersite.com/graphql";
+  "https://plum-gorilla-109923.hostingersite.com/?graphql";
 
 export async function fetchGraphQL<T = Record<string, unknown>>(
   query: string,

@@ -1,3 +1,5 @@
+"use server";
+
 export interface FormState {
   success: boolean;
   error: string;
