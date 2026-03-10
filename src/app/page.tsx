@@ -18,19 +18,27 @@ import ReviewsCarousel from "@/components/ReviewsCarousel";
 import { fetchGraphQL } from "@/lib/wordpress";
 import { HOME_PAGE_QUERY } from "@/lib/queries";
 
+type WpImage = { node: { sourceUrl: string; altText: string } } | null;
+
 interface HomePageData {
   page: {
     homePage: {
       heroHeading: string | null;
       heroSubtext: string | null;
-      heroImage: { node: { sourceUrl: string; altText: string } } | null;
+      heroImage: WpImage;
       aboutHeading: string | null;
       aboutText: string | null;
-      aboutImage: { node: { sourceUrl: string; altText: string } } | null;
+      aboutImage1: WpImage;
+      aboutImage2: WpImage;
+      aboutImage3: WpImage;
+      aboutImage4: WpImage;
       phoneNumber: string | null;
       mybuilderReviewCount: number | null;
       mybuilderUrl: string | null;
       yearsExperience: number | null;
+      recentWorkImage1: WpImage;
+      recentWorkImage2: WpImage;
+      recentWorkImage3: WpImage;
     };
   };
 }
@@ -58,6 +66,22 @@ export default async function HomePage() {
     "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&q=80";
   const heroImageAlt =
     hp?.heroImage?.node?.altText || "Beautifully decorated interior living space";
+
+  const aboutImg1 = hp?.aboutImage1?.node?.sourceUrl || "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&q=80";
+  const aboutImg1Alt = hp?.aboutImage1?.node?.altText || "Painter working on wall";
+  const aboutImg2 = hp?.aboutImage2?.node?.sourceUrl || "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&q=80";
+  const aboutImg2Alt = hp?.aboutImage2?.node?.altText || "Freshly painted bedroom";
+  const aboutImg3 = hp?.aboutImage3?.node?.sourceUrl || "https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=400&q=80";
+  const aboutImg3Alt = hp?.aboutImage3?.node?.altText || "Paint brushes close up";
+  const aboutImg4 = hp?.aboutImage4?.node?.sourceUrl || "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=400&q=80";
+  const aboutImg4Alt = hp?.aboutImage4?.node?.altText || "Modern decorated room";
+
+  const recentImg1 = hp?.recentWorkImage1?.node?.sourceUrl || "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80";
+  const recentImg1Alt = hp?.recentWorkImage1?.node?.altText || "Recently decorated interior room";
+  const recentImg2 = hp?.recentWorkImage2?.node?.sourceUrl || "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80";
+  const recentImg2Alt = hp?.recentWorkImage2?.node?.altText || "Tiled bathroom wall";
+  const recentImg3 = hp?.recentWorkImage3?.node?.sourceUrl || "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80";
+  const recentImg3Alt = hp?.recentWorkImage3?.node?.altText || "Freshly tiled kitchen";
 
   return (
     <>
@@ -135,16 +159,16 @@ export default async function HomePage() {
             <div className="space-y-4">
               <div className="rounded-xl overflow-hidden aspect-[3/4] relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&q=80"
-                  alt="Painter working on wall"
+                  src={aboutImg1}
+                  alt={aboutImg1Alt}
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="rounded-xl overflow-hidden aspect-square relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&q=80"
-                  alt="Freshly painted bedroom"
+                  src={aboutImg2}
+                  alt={aboutImg2Alt}
                   fill
                   className="object-cover"
                 />
@@ -153,16 +177,16 @@ export default async function HomePage() {
             <div className="space-y-4 pt-8">
               <div className="rounded-xl overflow-hidden aspect-[4/3] relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=400&q=80"
-                  alt="Paint brushes close up"
+                  src={aboutImg3}
+                  alt={aboutImg3Alt}
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="rounded-xl overflow-hidden aspect-[3/4] relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1615529328331-f8917597711f?w=400&q=80"
-                  alt="Modern decorated room"
+                  src={aboutImg4}
+                  alt={aboutImg4Alt}
                   fill
                   className="object-cover"
                 />
@@ -295,24 +319,24 @@ export default async function HomePage() {
           <div className="grid md:grid-cols-3 gap-6 mb-10">
             <div className="rounded-xl overflow-hidden aspect-[4/3] relative">
               <Image
-                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80"
-                alt="Recently decorated interior room"
+                src={recentImg1}
+                alt={recentImg1Alt}
                 fill
                 className="object-cover"
               />
             </div>
             <div className="rounded-xl overflow-hidden aspect-[4/3] relative">
               <Image
-                src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80"
-                alt="Tiled bathroom wall"
+                src={recentImg2}
+                alt={recentImg2Alt}
                 fill
                 className="object-cover"
               />
             </div>
             <div className="rounded-xl overflow-hidden aspect-[4/3] relative">
               <Image
-                src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80"
-                alt="Freshly tiled kitchen"
+                src={recentImg3}
+                alt={recentImg3Alt}
                 fill
                 className="object-cover"
               />

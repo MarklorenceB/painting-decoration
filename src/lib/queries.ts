@@ -12,7 +12,25 @@ export const HOME_PAGE_QUERY = `
         }
         aboutHeading
         aboutText
-        aboutImage {
+        aboutImage1 {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+        aboutImage2 {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+        aboutImage3 {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+        aboutImage4 {
           node {
             sourceUrl
             altText
@@ -22,6 +40,24 @@ export const HOME_PAGE_QUERY = `
         mybuilderReviewCount
         mybuilderUrl
         yearsExperience
+        recentWorkImage1 {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+        recentWorkImage2 {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+        recentWorkImage3 {
+          node {
+            sourceUrl
+            altText
+          }
+        }
       }
       contactPage {
         contactPhone
