@@ -9,7 +9,7 @@ export default function Footer({ phone = "07903 197937" }: { phone?: string }) {
         <div>
           <div className="flex items-center gap-2 text-white mb-6">
             <Image
-              src="/logo.jpeg"
+              src="/logo.png"
               alt="Jason Chapman Logo"
               width={40}
               height={40}

@@ -31,8 +31,8 @@ export default function GalleryPageClient({ projects }: { projects: Project[] })
   return (
     <>
       {/* Hero */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
+      <section className="py-section px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-content">
           Recent decorating and tiling work
         </h1>
         <p className="text-lg text-slate-600 max-w-2xl mb-8">
@@ -59,8 +59,8 @@ export default function GalleryPageClient({ projects }: { projects: Project[] })
       </section>
 
       {/* Project Grid */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="pb-section-lg px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
           {filtered.map((project) => (
             <div
               key={project.title}
@@ -89,7 +89,7 @@ export default function GalleryPageClient({ projects }: { projects: Project[] })
       </section>
 
       {/* MyBuilder Review Banner */}
-      <section className="px-4 sm:px-6 lg:px-8 pb-20">
+      <section className="px-4 sm:px-6 lg:px-8 pb-section-lg">
         <div className="max-w-7xl mx-auto">
           <div className="bg-primary/5 rounded-xl p-8 md:p-10 text-center">
             <div className="flex justify-center gap-1 mb-4">
@@ -117,9 +117,9 @@ export default function GalleryPageClient({ projects }: { projects: Project[] })
       </section>
 
       {/* CTA */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pb-section-lg px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Like what you see?</h2>
+          <h2 className="text-3xl font-bold mb-content">Like what you see?</h2>
           <p className="text-lg text-slate-600 mb-8">
             Get in touch to talk through your project and request a quote.
           </p>

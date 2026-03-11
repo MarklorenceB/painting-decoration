@@ -95,7 +95,7 @@ export default async function HomePage() {
           priority
         />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto py-16">
+        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto py-section">
           <p className="text-sm font-semibold tracking-widest uppercase mb-4">
             Jason Chapman Tiling, Painting &amp; Decorating
           </p>
@@ -145,8 +145,8 @@ export default async function HomePage() {
       </section>
 
       {/* 3. A local tradesman who takes pride in the finish */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <section className="py-section-lg px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-content-lg items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               {aboutHeading}
@@ -197,12 +197,12 @@ export default async function HomePage() {
       </section>
 
       {/* 4. Services */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-section px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-content-lg">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Services</h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
             {[
               {
                 icon: Brush,
@@ -248,9 +248,9 @@ export default async function HomePage() {
       </section>
 
       {/* 5. Why homeowners choose Jason */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-section px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+          <div className="max-w-3xl mx-auto text-center mb-content-lg">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Why homeowners choose Jason
             </h2>
@@ -260,7 +260,7 @@ export default async function HomePage() {
               and a professional finish from start to finish.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-gutter max-w-4xl mx-auto">
             {[
               "Direct, one-to-one service",
               "Clean and tidy while working",
@@ -277,9 +277,9 @@ export default async function HomePage() {
       </section>
 
       {/* 6. Trusted by local homeowners */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-section-lg px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-14">
+          <div className="max-w-3xl mx-auto text-center mb-content-lg">
             <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-5">
               <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
               5/5 rated on MyBuilder — {reviewCount} reviews
@@ -311,12 +311,12 @@ export default async function HomePage() {
       </section>
 
       {/* 7. Recent Work preview */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-section px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-content-lg">
             Recent work
           </h2>
-          <div className="grid md:grid-cols-3 gap-6 mb-10">
+          <div className="grid md:grid-cols-3 gap-6 mb-content-lg">
             <div className="rounded-xl overflow-hidden aspect-[4/3] relative">
               <Image
                 src={recentImg1}
@@ -355,7 +355,7 @@ export default async function HomePage() {
       </section>
 
       {/* 8. Areas Covered */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-section px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <MapPin className="h-8 w-8 text-primary mx-auto mb-4" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -370,12 +370,12 @@ export default async function HomePage() {
       </section>
 
       {/* 9. How It Works */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-section px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-content-lg">
             How it works
           </h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-gutter max-w-4xl mx-auto">
             {[
               {
                 step: 1,
@@ -417,9 +417,9 @@ export default async function HomePage() {
       </section>
 
       {/* 10. FAQs */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-section px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-content-lg">
             Frequently asked questions
           </h2>
           <div className="space-y-4">
@@ -462,7 +462,7 @@ export default async function HomePage() {
       </section>
 
       {/* 11. Final CTA */}
-      <section className="bg-primary text-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="bg-primary text-white py-section px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Need a painter, decorator or tiler?

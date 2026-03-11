@@ -10,6 +10,7 @@ import {
   Layers,
   Heart,
   MapPin,
+  Phone,
 } from "lucide-react";
 import { fetchGraphQL } from "@/lib/wordpress";
 import { SERVICE_PAGE_QUERY } from "@/lib/queries";
@@ -61,9 +62,17 @@ export default async function ExteriorPaintingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="max-w-3xl">
-          <div className="flex items-center gap-3 mb-4 text-primary">
+      <section className="relative min-h-[70vh] flex items-center justify-center">
+        <Image
+          src={heroImage}
+          alt={heroImageAlt}
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto py-section">
+          <div className="flex items-center justify-center gap-3 mb-4">
             <PaintBucket className="h-5 w-5" />
             <span className="font-bold text-sm uppercase tracking-widest">
               Exterior Painting
@@ -72,14 +81,30 @@ export default async function ExteriorPaintingPage() {
           <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-6">
             {heading}
           </h1>
-          <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+          <p className="text-lg text-white/80 mb-8 leading-relaxed">
             {subtext}
           </p>
-          <div className="flex gap-4">
-            <span className="flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 min-h-[44px] rounded-lg font-bold transition-colors shadow-lg"
+            >
+              Get a Free Quote
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="tel:07903197937"
+              className="inline-flex items-center gap-2 border-2 border-white text-white hover:bg-white/10 px-8 py-4 min-h-[44px] rounded-lg font-bold transition-colors"
+            >
+              <Phone className="h-4 w-4" />
+              Call Now
+            </Link>
+          </div>
+          <div className="flex justify-center gap-4">
+            <span className="flex items-center gap-2 bg-white/20 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
               <Star className="h-4 w-4" /> 5/5 on MyBuilder
             </span>
-            <span className="flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+            <span className="flex items-center gap-2 bg-white/20 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
               <ShieldCheck className="h-4 w-4" /> ~20 years&apos; experience
             </span>
           </div>
@@ -87,10 +112,10 @@ export default async function ExteriorPaintingPage() {
       </section>
 
       {/* Main content */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className="py-section px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-content-lg items-center">
           <div className="order-2 lg:order-1">
-            <h2 className="text-3xl font-bold mb-4">
+            <h2 className="text-3xl font-bold mb-content">
               {contentHeading}
             </h2>
             <p className="text-slate-600 mb-6 leading-relaxed">
@@ -120,12 +145,22 @@ export default async function ExteriorPaintingPage() {
                 ))}
               </ul>
             </div>
-            <Link
-              href="/contact"
-              className="flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all"
-            >
-              Request a quote <ArrowRight className="h-4 w-4" />
-            </Link>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-3 min-h-[44px] rounded-lg font-bold transition-colors"
+              >
+                Get a Free Quote
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/gallery"
+                className="inline-flex items-center gap-2 border-2 border-slate-200 text-slate-700 hover:border-primary hover:text-primary px-6 py-3 min-h-[44px] rounded-lg font-bold transition-colors"
+              >
+                View Our Work
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
           <div className="order-1 lg:order-2">
             <div className="relative rounded-xl overflow-hidden aspect-[4/3] shadow-2xl">
@@ -141,9 +176,9 @@ export default async function ExteriorPaintingPage() {
       </section>
 
       {/* Why choose Jason */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-section-lg px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-gutter">
             <div className="group relative bg-white rounded-2xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(254,126,4,0.08)] hover:border-primary/20 transition-all duration-300">
               <div className="mb-5 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                 <Layers className="h-6 w-6" />
@@ -187,20 +222,30 @@ export default async function ExteriorPaintingPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-primary text-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="bg-primary text-white py-section px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-3xl font-bold mb-content">
             {ctaHeading}
           </h2>
           <p className="text-white/80 mb-8 text-lg">
             {ctaText}
           </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-slate-50 transition-colors shadow-lg"
-          >
-            Request a quote
-          </Link>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 min-h-[44px] rounded-lg font-bold hover:bg-slate-50 transition-colors shadow-lg"
+            >
+              Get Your Free Quote
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="tel:07903197937"
+              className="inline-flex items-center gap-2 border-2 border-white text-white hover:bg-white/10 px-8 py-4 min-h-[44px] rounded-lg font-bold transition-colors"
+            >
+              <Phone className="h-4 w-4" />
+              Call 07903 197937
+            </Link>
+          </div>
         </div>
       </section>
     </>

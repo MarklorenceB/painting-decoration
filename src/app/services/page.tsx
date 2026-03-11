@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { Brush, PaintBucket, Grid3X3, ArrowRight } from "lucide-react";
+import { Brush, PaintBucket, Grid3X3, ArrowRight, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title:
@@ -36,20 +37,48 @@ const services = [
 export default function ServicesOverviewPage() {
   return (
     <>
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="max-w-3xl mb-12">
+      {/* Hero */}
+      <section className="relative min-h-[70vh] flex items-center justify-center">
+        <Image
+          src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1600&q=80"
+          alt="Professional painting and decorating services"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto py-section">
           <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-6">
             Services
           </h1>
-          <p className="text-lg text-slate-600 leading-relaxed">
+          <p className="text-lg text-white/85 leading-relaxed mb-8">
             Jason Chapman provides painting, decorating and tiling for
             homeowners across Wellington, Taunton, Tiverton and the surrounding
             areas. All work is completed with care, attention to detail and
             respect for your home.
           </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 min-h-[44px] rounded-lg font-bold transition-colors shadow-lg"
+            >
+              Get a Free Quote
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="tel:07903197937"
+              className="inline-flex items-center gap-2 border-2 border-white text-white hover:bg-white/10 px-8 py-4 min-h-[44px] rounded-lg font-bold transition-colors"
+            >
+              <Phone className="h-4 w-4" />
+              Call Now
+            </Link>
+          </div>
         </div>
+      </section>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Service Cards */}
+      <section className="py-section px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
           {services.map((service) => (
             <Link
               key={service.href}
@@ -74,20 +103,30 @@ export default function ServicesOverviewPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-primary text-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="bg-primary text-white py-section px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-3xl font-bold mb-content">
             Need painting, decorating or tiling?
           </h2>
           <p className="text-white/80 mb-8 text-lg">
             Get in touch to discuss your project and request a quote.
           </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-slate-50 transition-colors shadow-lg"
-          >
-            Request a quote
-          </Link>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 min-h-[44px] rounded-lg font-bold hover:bg-slate-50 transition-colors shadow-lg"
+            >
+              Get Your Free Quote
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="tel:07903197937"
+              className="inline-flex items-center gap-2 border-2 border-white text-white hover:bg-white/10 px-8 py-4 min-h-[44px] rounded-lg font-bold transition-colors"
+            >
+              <Phone className="h-4 w-4" />
+              Call 07903 197937
+            </Link>
+          </div>
         </div>
       </section>
     </>

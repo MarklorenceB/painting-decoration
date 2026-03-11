@@ -5,6 +5,13 @@
   --foreground: #0f172a;
   --primary: #fe7e04;
   --primary-light: rgba(254, 126, 4, 0.1);
+
+  /* Vertical rhythm spacing system */
+  --space-sm: 1rem;      /* 16px — tight content gaps */
+  --space-md: 2rem;      /* 32px — standard content spacing, heading margins */
+  --space-lg: 3rem;      /* 48px — section heading to body, grid gaps */
+  --space-xl: 4rem;      /* 64px — standard section padding */
+  --space-2xl: 5rem;     /* 80px — emphasized section padding */
 }
 
 @theme inline {
@@ -13,6 +20,13 @@
   --color-primary: var(--primary);
   --color-primary-light: var(--primary-light);
   --font-sans: var(--font-inter);
+
+  /* Semantic spacing tokens */
+  --spacing-section: var(--space-xl);
+  --spacing-section-lg: var(--space-2xl);
+  --spacing-content: var(--space-md);
+  --spacing-content-lg: var(--space-lg);
+  --spacing-gutter: var(--space-md);
 }
 
 body {
