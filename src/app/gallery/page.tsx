@@ -8,43 +8,21 @@ interface GalleryData {
       title: string;
       galleryFields: {
         galleryImage: { node: { sourceUrl: string; altText: string } } | null;
-        galleryCategory: string | null;
+        galleryCategory: string | string[] | null;
         galleryDescription: string | null;
       };
     }>;
   };
 }
 
-const fallbackBeforeAfter = [
-  {
-    title: "Living room transformation",
-    description: "Tired walls and dated woodwork brought back to life with fresh paint and careful prep.",
-    category: "decorating",
-    beforeImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80",
-    afterImage: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
-  },
-  {
-    title: "Bathroom tiling overhaul",
-    description: "Old tiles removed and replaced with clean, modern wall tiling throughout.",
-    category: "tiling",
-    beforeImage: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80",
-    afterImage: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80",
-  },
-  {
-    title: "Bedroom repaint",
-    description: "A full bedroom redecoration — walls, ceiling and woodwork finished to a high standard.",
-    category: "decorating",
-    beforeImage: "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=600&q=80",
-    afterImage: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&q=80",
-  },
-  {
-    title: "Kitchen floor tiling",
-    description: "Worn flooring replaced with durable, neatly laid tiles for a fresh kitchen finish.",
-    category: "tiling",
-    beforeImage: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80",
-    afterImage: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80",
-  },
-];
+// Map any WordPress category value to "decorating" or "tiling"
+function normalizeCategory(raw: string | string[] | null): string {
+  const val = Array.isArray(raw) ? (raw[0] || "") : (raw || "");
+  const lower = String(val).toLowerCase().trim();
+  if (lower.includes("til")) return "tiling";
+  if (lower.includes("paint") || lower.includes("decor") || lower.includes("interior") || lower.includes("exterior")) return "decorating";
+  return lower || "decorating";
+}
 
 const fallbackProjects = [
   {
@@ -100,12 +78,12 @@ export default async function GalleryPage() {
     projects = nodes.map((node) => ({
       title: node.title,
       description: node.galleryFields?.galleryDescription || "",
-      category: (node.galleryFields?.galleryCategory || "decorating").toLowerCase(),
+      category: normalizeCategory(node.galleryFields?.galleryCategory),
       image: node.galleryFields?.galleryImage?.node?.sourceUrl || "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
     }));
   } else {
     projects = fallbackProjects;
   }
 
-  return <GalleryPageClient projects={projects} beforeAfterProjects={fallbackBeforeAfter} />;
+  return <GalleryPageClient projects={projects} />;
 }

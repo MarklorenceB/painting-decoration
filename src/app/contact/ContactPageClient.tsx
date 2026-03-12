@@ -26,6 +26,8 @@ interface ContactPageClientProps {
   areas: string;
   reviewCount: number;
   mybuilderUrl: string;
+  heroImage: string;
+  heroImageAlt: string;
 }
 
 export default function ContactPageClient({
@@ -35,6 +37,8 @@ export default function ContactPageClient({
   areas,
   reviewCount,
   mybuilderUrl,
+  heroImage,
+  heroImageAlt,
 }: ContactPageClientProps) {
   const [state, setState] = useState<FormState | null>(null);
   const [isPending, setIsPending] = useState(false);
@@ -59,15 +63,15 @@ export default function ContactPageClient({
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[50vh] flex items-center justify-center">
+      <section className="relative aspect-[21/9] min-h-[360px] flex items-center justify-center">
         <Image
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80"
-          alt="Professional painting and decorating"
+          src={heroImage}
+          alt={heroImageAlt}
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto py-16">
           <span className="inline-block px-4 py-1.5 mb-5 text-xs font-bold tracking-wider uppercase bg-primary/80 text-white rounded-full">
             Available for new projects

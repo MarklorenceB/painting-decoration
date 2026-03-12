@@ -4,9 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Star, ArrowRight } from "lucide-react";
-import BeforeAfterSlider from "@/components/BeforeAfterSlider";
-
-type Category = "all" | "decorating" | "tiling";
 
 interface Project {
   title: string;
@@ -15,28 +12,15 @@ interface Project {
   image: string;
 }
 
-interface BeforeAfterProject {
-  title: string;
-  description: string;
-  category: string;
-  beforeImage: string;
-  afterImage: string;
-}
-
-const filters: { label: string; value: Category }[] = [
-  { label: "All", value: "all" },
-  { label: "Decorating", value: "decorating" },
-  { label: "Tiling", value: "tiling" },
-];
-
 export default function GalleryPageClient({
   projects,
-  beforeAfterProjects = [],
 }: {
   projects: Project[];
-  beforeAfterProjects?: BeforeAfterProject[];
 }) {
-  const [active, setActive] = useState<Category>("all");
+  const [active, setActive] = useState("all");
+
+  // Always show Decorating and Tiling tabs
+  const categories = ["decorating", "tiling"];
 
   const filtered =
     active === "all"
@@ -57,17 +41,27 @@ export default function GalleryPageClient({
 
         {/* Filter Tabs */}
         <div className="flex flex-wrap gap-3">
-          {filters.map((f) => (
+          <button
+            onClick={() => setActive("all")}
+            className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${
+              active === "all"
+                ? "bg-primary text-white"
+                : "border border-slate-300 text-slate-700 hover:border-primary hover:text-primary"
+            }`}
+          >
+            All
+          </button>
+          {categories.map((cat) => (
             <button
-              key={f.value}
-              onClick={() => setActive(f.value)}
-              className={`px-5 py-2 rounded-full text-sm font-bold transition-all ${
-                active === f.value
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={`px-5 py-2 rounded-full text-sm font-bold transition-all capitalize ${
+                active === cat
                   ? "bg-primary text-white"
                   : "border border-slate-300 text-slate-700 hover:border-primary hover:text-primary"
               }`}
             >
-              {f.label}
+              {cat}
             </button>
           ))}
         </div>
@@ -102,32 +96,6 @@ export default function GalleryPageClient({
           ))}
         </div>
       </section>
-
-      {/* Before & After */}
-      {beforeAfterProjects.length > 0 && (
-        <section className="pb-section-lg px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold tracking-tight mb-2">
-            Before &amp; after
-          </h2>
-          <p className="text-lg text-slate-600 mb-8">
-            Drag the slider to see the difference.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-gutter">
-            {beforeAfterProjects.map((project) => (
-              <BeforeAfterSlider
-                key={project.title}
-                beforeImage={project.beforeImage}
-                afterImage={project.afterImage}
-                beforeAlt={`${project.title} — before`}
-                afterAlt={`${project.title} — after`}
-                title={project.title}
-                description={project.description}
-                category={project.category}
-              />
-            ))}
-          </div>
-        </section>
-      )}
 
       {/* MyBuilder Review Banner */}
       <section className="px-4 sm:px-6 lg:px-8 pb-section-lg">

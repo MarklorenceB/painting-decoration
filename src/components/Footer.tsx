@@ -11,9 +11,9 @@ export default function Footer({ phone = "07903 197937" }: { phone?: string }) {
             <Image
               src="/logo.png"
               alt="Jason Chapman Logo"
-              width={40}
-              height={40}
-              className="rounded-md"
+              width={60}
+              height={60}
+              className="rounded-md brightness-0 invert"
             />
             <span className="text-xl font-bold tracking-tight">
               Jason Chapman Tiling, Painting &amp; Decorating

@@ -9,6 +9,7 @@ interface ContactPageData {
       contactSubtext: string | null;
       contactPhone: string | null;
       contactAreas: string | null;
+      contactHeroImage: { node: { sourceUrl: string; altText: string } } | null;
     };
     homePage: {
       phoneNumber: string | null;
@@ -29,6 +30,8 @@ export default async function ContactPage() {
   const areas = cp?.contactAreas || "Wellington, Taunton, Tiverton and surrounding areas.";
   const reviewCount = hp?.mybuilderReviewCount ?? 91;
   const mybuilderUrl = hp?.mybuilderUrl || "https://www.mybuilder.com/profile/jason_chapman_tiling_painting_decorating/reviews";
+  const heroImage = cp?.contactHeroImage?.node?.sourceUrl || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80";
+  const heroImageAlt = cp?.contactHeroImage?.node?.altText || "Professional painting and decorating";
 
   return (
     <ContactPageClient
@@ -38,6 +41,8 @@ export default async function ContactPage() {
       areas={areas}
       reviewCount={reviewCount}
       mybuilderUrl={mybuilderUrl}
+      heroImage={heroImage}
+      heroImageAlt={heroImageAlt}
     />
   );
 }

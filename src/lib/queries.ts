@@ -125,6 +125,12 @@ export const CONTACT_PAGE_QUERY = `
         contactSubtext
         contactPhone
         contactAreas
+        contactHeroImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
       }
       homePage {
         phoneNumber
