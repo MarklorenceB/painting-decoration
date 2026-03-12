@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Star, ArrowRight } from "lucide-react";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
 type Category = "all" | "decorating" | "tiling";
 
@@ -14,13 +15,27 @@ interface Project {
   image: string;
 }
 
+interface BeforeAfterProject {
+  title: string;
+  description: string;
+  category: string;
+  beforeImage: string;
+  afterImage: string;
+}
+
 const filters: { label: string; value: Category }[] = [
   { label: "All", value: "all" },
   { label: "Decorating", value: "decorating" },
   { label: "Tiling", value: "tiling" },
 ];
 
-export default function GalleryPageClient({ projects }: { projects: Project[] }) {
+export default function GalleryPageClient({
+  projects,
+  beforeAfterProjects = [],
+}: {
+  projects: Project[];
+  beforeAfterProjects?: BeforeAfterProject[];
+}) {
   const [active, setActive] = useState<Category>("all");
 
   const filtered =
@@ -87,6 +102,32 @@ export default function GalleryPageClient({ projects }: { projects: Project[] })
           ))}
         </div>
       </section>
+
+      {/* Before & After */}
+      {beforeAfterProjects.length > 0 && (
+        <section className="pb-section-lg px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold tracking-tight mb-2">
+            Before &amp; after
+          </h2>
+          <p className="text-lg text-slate-600 mb-8">
+            Drag the slider to see the difference.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-gutter">
+            {beforeAfterProjects.map((project) => (
+              <BeforeAfterSlider
+                key={project.title}
+                beforeImage={project.beforeImage}
+                afterImage={project.afterImage}
+                beforeAlt={`${project.title} — before`}
+                afterAlt={`${project.title} — after`}
+                title={project.title}
+                description={project.description}
+                category={project.category}
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* MyBuilder Review Banner */}
       <section className="px-4 sm:px-6 lg:px-8 pb-section-lg">
