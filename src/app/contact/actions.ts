@@ -13,7 +13,7 @@ export async function submitContactForm(
   }
 
   try {
-    const res = await fetch("https://hook.eu2.make.com/kf3sylpqgxqftw4i3h251tm12nr5ue2x", {
+    const res = await fetch("https://hook.eu2.make.com/m7p7kyfhk73f7dyvjr6tw8ldy7d2sl9t", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
