@@ -71,10 +71,6 @@ export default async function HomePage() {
   const aboutImg1Alt = hp?.aboutImage1?.node?.altText || "Painter working on wall";
   const aboutImg2 = hp?.aboutImage2?.node?.sourceUrl || "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&q=80";
   const aboutImg2Alt = hp?.aboutImage2?.node?.altText || "Freshly painted bedroom";
-  const aboutImg3 = hp?.aboutImage3?.node?.sourceUrl || "https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=400&q=80";
-  const aboutImg3Alt = hp?.aboutImage3?.node?.altText || "Paint brushes close up";
-  const aboutImg4 = hp?.aboutImage4?.node?.sourceUrl || "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=400&q=80";
-  const aboutImg4Alt = hp?.aboutImage4?.node?.altText || "Modern decorated room";
 
   const recentImg1 = hp?.recentWorkImage1?.node?.sourceUrl || "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80";
   const recentImg1Alt = hp?.recentWorkImage1?.node?.altText || "Recently decorated interior room";
@@ -156,41 +152,21 @@ export default async function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-4">
-              <div className="rounded-xl overflow-hidden aspect-[3/4] relative">
-                <Image
-                  src={aboutImg1}
-                  alt={aboutImg1Alt}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="rounded-xl overflow-hidden aspect-square relative">
-                <Image
-                  src={aboutImg2}
-                  alt={aboutImg2Alt}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+            <div className="rounded-xl overflow-hidden aspect-[3/4] relative">
+              <Image
+                src={aboutImg1}
+                alt={aboutImg1Alt}
+                fill
+                className="object-cover"
+              />
             </div>
-            <div className="space-y-4 pt-8">
-              <div className="rounded-xl overflow-hidden aspect-[4/3] relative">
-                <Image
-                  src={aboutImg3}
-                  alt={aboutImg3Alt}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="rounded-xl overflow-hidden aspect-[3/4] relative">
-                <Image
-                  src={aboutImg4}
-                  alt={aboutImg4Alt}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+            <div className="rounded-xl overflow-hidden aspect-[3/4] relative mt-8">
+              <Image
+                src={aboutImg2}
+                alt={aboutImg2Alt}
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
