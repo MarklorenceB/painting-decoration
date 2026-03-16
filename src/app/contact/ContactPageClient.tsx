@@ -63,7 +63,7 @@ export default function ContactPageClient({
   return (
     <>
       {/* Hero */}
-      <section className="relative aspect-[21/9] min-h-[360px] flex items-center justify-center">
+      <section className="relative min-h-[50vh] md:aspect-[21/9] md:min-h-0 flex items-center justify-center">
         <Image
           src={heroImage}
           alt={heroImageAlt}
