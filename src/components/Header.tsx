@@ -92,7 +92,7 @@ export default function Header() {
 
           <div className="flex items-center gap-4">
             <Link
-              href="/contact"
+              href="/contact#contact-form"
               className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all"
             >
               Get a Quote
