@@ -219,7 +219,7 @@ export default async function HomePage() {
       </section>
 
       {/* 5. Why homeowners choose Jason */}
-      <section className="relative py-section-lg px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <Image
           src={whyChooseImg}
           alt={whyChooseImgAlt}
