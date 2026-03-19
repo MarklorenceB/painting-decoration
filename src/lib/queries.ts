@@ -40,6 +40,12 @@ export const HOME_PAGE_QUERY = `
         mybuilderReviewCount
         mybuilderUrl
         yearsExperience
+        whyChooseImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
         recentWorkImage1 {
           node {
             sourceUrl

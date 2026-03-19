@@ -37,6 +37,7 @@ interface HomePageData {
       mybuilderReviewCount: number | null;
       mybuilderUrl: string | null;
       yearsExperience: number | null;
+      whyChooseImage: WpImage;
       recentWorkImage1: WpImage;
       recentWorkImage2: WpImage;
       recentWorkImage3: WpImage;
@@ -72,6 +73,9 @@ export default async function HomePage() {
   const aboutImg1Alt = hp?.aboutImage1?.node?.altText || "Painter working on wall";
   const aboutImg2 = hp?.aboutImage2?.node?.sourceUrl || "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&q=80";
   const aboutImg2Alt = hp?.aboutImage2?.node?.altText || "Freshly painted bedroom";
+
+  const whyChooseImg = hp?.whyChooseImage?.node?.sourceUrl || "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1600&q=80";
+  const whyChooseImgAlt = hp?.whyChooseImage?.node?.altText || "Beautifully finished interior";
 
   const recentImg1 = hp?.recentWorkImage1?.node?.sourceUrl || "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80";
   const recentImg1Alt = hp?.recentWorkImage1?.node?.altText || "Recently decorated interior room";
@@ -217,8 +221,8 @@ export default async function HomePage() {
       {/* 5. Why homeowners choose Jason */}
       <section className="relative py-section px-4 sm:px-6 lg:px-8 overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1600&q=80"
-          alt="Beautifully finished interior"
+          src={whyChooseImg}
+          alt={whyChooseImgAlt}
           fill
           className="object-cover"
         />
