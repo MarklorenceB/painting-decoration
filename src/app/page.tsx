@@ -15,6 +15,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
+import ParallaxHero from "@/components/ParallaxHero";
 import { fetchGraphQL } from "@/lib/wordpress";
 import { HOME_PAGE_QUERY } from "@/lib/queries";
 
@@ -81,43 +82,33 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* 1. Full-bleed Hero */}
-      <section className="relative min-h-[70vh] flex items-center justify-center">
-        <Image
-          src={heroImageUrl}
-          alt={heroImageAlt}
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto py-section">
-          <p className="text-sm font-semibold tracking-widest uppercase mb-4">
-            Jason Chapman Tiling, Painting &amp; Decorating
-          </p>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
-            {heroHeading}
-          </h1>
-          <p className="text-lg text-white/90 leading-relaxed max-w-2xl mx-auto mb-8">
-            {heroSubtext}
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-bold transition-colors"
-            >
-              Request a quote
-            </Link>
-            <Link
-              href={`tel:${phoneNumber.replace(/\s/g, "")}`}
-              className="border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-lg font-bold transition-colors flex items-center gap-2"
-            >
-              <Phone className="h-4 w-4" />
-              Call {phoneNumber}
-            </Link>
-          </div>
+      {/* 1. Full-bleed Hero with Parallax */}
+      <ParallaxHero src={heroImageUrl} alt={heroImageAlt}>
+        <p className="text-sm font-semibold tracking-widest uppercase mb-4">
+          Jason Chapman Tiling, Painting &amp; Decorating
+        </p>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+          {heroHeading}
+        </h1>
+        <p className="text-lg text-white/90 leading-relaxed max-w-2xl mx-auto mb-8">
+          {heroSubtext}
+        </p>
+        <div className="flex flex-wrap gap-4 justify-center">
+          <Link
+            href="/contact"
+            className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-bold transition-colors"
+          >
+            Request a quote
+          </Link>
+          <Link
+            href={`tel:${phoneNumber.replace(/\s/g, "")}`}
+            className="border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-lg font-bold transition-colors flex items-center gap-2"
+          >
+            <Phone className="h-4 w-4" />
+            Call {phoneNumber}
+          </Link>
         </div>
-      </section>
+      </ParallaxHero>
 
       {/* 2. Trust Strip */}
       <section className="bg-white border-y border-slate-200">
@@ -224,13 +215,20 @@ export default async function HomePage() {
       </section>
 
       {/* 5. Why homeowners choose Jason */}
-      <section className="py-section px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-section px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1600&q=80"
+          alt="Beautifully finished interior"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 max-w-7xl mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-content-lg">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
               Why homeowners choose Jason
             </h2>
-            <p className="text-slate-600 leading-relaxed text-lg">
+            <p className="text-white/80 leading-relaxed text-lg">
               Jason is known for reliable service, tidy working and close
               attention to detail. You get direct communication, honest advice
               and a professional finish from start to finish.
@@ -245,7 +243,7 @@ export default async function HomePage() {
             ].map((point) => (
               <div key={point} className="text-center">
                 <CheckCircle className="h-8 w-8 text-primary mx-auto mb-3" />
-                <p className="font-semibold">{point}</p>
+                <p className="font-semibold text-white">{point}</p>
               </div>
             ))}
           </div>
@@ -293,30 +291,26 @@ export default async function HomePage() {
             Recent work
           </h2>
           <div className="grid md:grid-cols-3 gap-6 mb-content-lg">
-            <div className="rounded-xl overflow-hidden aspect-[4/3] relative">
-              <Image
-                src={recentImg1}
-                alt={recentImg1Alt}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden aspect-[4/3] relative">
-              <Image
-                src={recentImg2}
-                alt={recentImg2Alt}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden aspect-[4/3] relative">
-              <Image
-                src={recentImg3}
-                alt={recentImg3Alt}
-                fill
-                className="object-cover"
-              />
-            </div>
+            {[
+              { src: recentImg1, alt: recentImg1Alt },
+              { src: recentImg2, alt: recentImg2Alt },
+              { src: recentImg3, alt: recentImg3Alt },
+            ].map((img) => (
+              <Link key={img.alt} href="/gallery" className="group rounded-xl overflow-hidden aspect-[4/3] relative block">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-500" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <span className="text-white font-bold text-sm bg-primary px-5 py-2.5 rounded-lg">
+                    View Project
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
           <div className="text-center">
             <Link

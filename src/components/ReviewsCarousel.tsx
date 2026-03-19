@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const reviews = [
@@ -60,6 +60,28 @@ export default function ReviewsCarousel() {
     return () => clearInterval(interval);
   }, [isAutoPlaying, next]);
 
+  // Touch/swipe support
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  function handleTouchStart(e: React.TouchEvent) {
+    touchStartX.current = e.touches[0].clientX;
+    touchEndX.current = null;
+  }
+
+  function handleTouchMove(e: React.TouchEvent) {
+    touchEndX.current = e.touches[0].clientX;
+  }
+
+  function handleTouchEnd() {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const delta = touchStartX.current - touchEndX.current;
+    if (delta > 50) handleManualNav(next);
+    else if (delta < -50) handleManualNav(prev);
+    touchStartX.current = null;
+    touchEndX.current = null;
+  }
+
   function handleManualNav(fn: () => void) {
     setIsAutoPlaying(false);
     fn();
@@ -82,11 +104,16 @@ export default function ReviewsCarousel() {
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
       {/* Cards */}
-      <div className="grid md:grid-cols-3 gap-6 mb-8">
+      <div
+        className="grid md:grid-cols-3 gap-6 mb-8"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {getVisibleReviews().map((review, idx) => (
           <div
             key={`${review.name}-${idx}`}
-            className="relative bg-background rounded-2xl p-7 border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(254,126,4,0.08)] hover:border-primary/20 transition-all duration-500"
+            className={`relative bg-background rounded-2xl p-7 border border-slate-100 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(254,126,4,0.08)] hover:border-primary/20 transition-all duration-500${idx > 0 ? " hidden md:block" : ""}`}
             style={{
               animation: "fadeSlideIn 0.5s ease-out forwards",
               animationDelay: `${idx * 100}ms`,
@@ -129,7 +156,7 @@ export default function ReviewsCarousel() {
       <div className="flex items-center justify-center gap-4">
         <button
           onClick={() => handleManualNav(prev)}
-          className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
+          className="w-12 h-12 md:w-10 md:h-10 rounded-full border border-slate-200 flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
           aria-label="Previous reviews"
         >
           <ChevronLeft className="h-5 w-5" />
@@ -155,7 +182,7 @@ export default function ReviewsCarousel() {
 
         <button
           onClick={() => handleManualNav(next)}
-          className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
+          className="w-12 h-12 md:w-10 md:h-10 rounded-full border border-slate-200 flex items-center justify-center hover:border-primary hover:text-primary transition-colors"
           aria-label="Next reviews"
         >
           <ChevronRight className="h-5 w-5" />
