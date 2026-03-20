@@ -63,7 +63,7 @@ export default function ContactPageClient({
   return (
     <>
       {/* Hero */}
-      <section className="relative aspect-[21/9] flex items-center justify-center">
+      <section className="relative py-16 md:py-24 flex items-center justify-center overflow-hidden">
         <Image
           src={heroImage}
           alt={heroImageAlt}
@@ -72,7 +72,7 @@ export default function ContactPageClient({
           priority
         />
         <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto py-16">
+        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <span className="inline-block px-4 py-1.5 mb-5 text-xs font-bold tracking-wider uppercase bg-primary/80 text-white rounded-full">
             Available for new projects
           </span>
