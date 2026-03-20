@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 
 export default function Footer({ phone = "07903 197937" }: { phone?: string }) {
   return (
     <footer className="bg-slate-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
         <div>
           <div className="flex items-center gap-2 text-white mb-6">
             <Image
@@ -67,6 +67,32 @@ export default function Footer({ phone = "07903 197937" }: { phone?: string }) {
               >
                 MyBuilder Reviews
               </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-white font-bold mb-6">Areas We Cover</h3>
+          <ul className="space-y-4 text-sm">
+            <li>
+              <Link href="/areas/wellington" className="hover:text-primary transition-colors flex items-center gap-2">
+                <MapPin className="h-3 w-3 shrink-0" /> Wellington
+              </Link>
+            </li>
+            <li>
+              <Link href="/areas/taunton" className="hover:text-primary transition-colors flex items-center gap-2">
+                <MapPin className="h-3 w-3 shrink-0" /> Taunton
+              </Link>
+            </li>
+            <li>
+              <Link href="/areas/tiverton" className="hover:text-primary transition-colors flex items-center gap-2">
+                <MapPin className="h-3 w-3 shrink-0" /> Tiverton
+              </Link>
+            </li>
+            <li>
+              <Link href="/areas/bridgwater" className="hover:text-primary transition-colors flex items-center gap-2">
+                <MapPin className="h-3 w-3 shrink-0" /> Bridgwater
+              </Link>
             </li>
           </ul>
         </div>

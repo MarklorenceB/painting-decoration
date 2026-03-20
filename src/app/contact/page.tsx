@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { fetchGraphQL } from "@/lib/wordpress";
 import { CONTACT_PAGE_QUERY } from "@/lib/queries";
 import ContactPageClient from "./ContactPageClient";
+
+export const metadata: Metadata = {
+  title: "Contact Jason Chapman | Free Quote",
+  description:
+    "Get in touch for a free, no-obligation quote on painting, decorating or tiling in Wellington, Taunton, Tiverton and surrounding areas. Call 07903 197937.",
+};
 
 interface ContactPageData {
   page: {

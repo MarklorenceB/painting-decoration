@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ReviewsFloatingTab from "@/components/ReviewsFloatingTab";
+import JsonLd, { localBusinessSchema } from "@/components/JsonLd";
 import { fetchGraphQL } from "@/lib/wordpress";
 
 const inter = Inter({
@@ -13,9 +14,28 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Interior Decorating & Tiling in Wellington | Jason Chapman",
+  title: {
+    default:
+      "Jason Chapman | Painter & Decorator Wellington, Somerset",
+    template: "%s | Jason Chapman Decorating",
+  },
   description:
-    "Interior painter, decorator and tiler based in Wellington, Somerset, covering Wellington, Taunton, Tiverton and surrounding areas.",
+    "Professional painter, decorator and tiler based in Wellington, Somerset. Interior & exterior painting, decorating and tiling across Wellington, Taunton, Tiverton and surrounding areas. ~20 years' experience. Free quotes.",
+  keywords: [
+    "painter and decorator Wellington",
+    "painter and decorator Taunton",
+    "painter and decorator Tiverton",
+    "tiler Wellington Somerset",
+    "interior painting Wellington",
+    "exterior painting Somerset",
+    "tiling services Wellington",
+    "Jason Chapman decorator",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    siteName: "Jason Chapman Tiling, Painting & Decorating",
+  },
 };
 
 const SITE_SETTINGS_QUERY = `
@@ -47,6 +67,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
+        <JsonLd data={localBusinessSchema} />
         <div className="relative flex min-h-screen flex-col overflow-x-hidden">
           <Header />
           <main className="flex-grow">{children}</main>

@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { fetchGraphQL } from "@/lib/wordpress";
 import { GALLERY_QUERY } from "@/lib/queries";
 import GalleryPageClient from "./GalleryPageClient";
+
+export const metadata: Metadata = {
+  title: "Gallery | Painting, Decorating & Tiling Work",
+  description:
+    "Browse examples of interior painting, exterior decorating and tiling projects completed by Jason Chapman across Wellington, Taunton, Tiverton and Somerset.",
+};
 
 interface GalleryData {
   galleryItems: {

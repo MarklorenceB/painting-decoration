@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { fetchGraphQL } from "@/lib/wordpress";
 import { SERVICE_PAGE_QUERY } from "@/lib/queries";
+import JsonLd, { serviceSchema } from "@/components/JsonLd";
 
 interface ServicePageData {
   page: {
@@ -61,6 +62,7 @@ export default async function ExteriorPaintingPage() {
 
   return (
     <>
+      <JsonLd data={serviceSchema("Exterior Painting", "Professional exterior house painting for homes in Wellington, Taunton, Tiverton and surrounding areas. Fascias, soffits, window frames, doors and garden walls.", "https://jason-chapman.vercel.app/services/exterior-painting")} />
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center justify-center">
         <Image

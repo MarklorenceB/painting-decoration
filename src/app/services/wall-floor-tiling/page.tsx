@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { fetchGraphQL } from "@/lib/wordpress";
 import { SERVICE_PAGE_QUERY } from "@/lib/queries";
+import JsonLd, { serviceSchema } from "@/components/JsonLd";
 
 interface ServicePageData {
   page: {
@@ -61,6 +62,7 @@ export default async function WallFloorTilingPage() {
 
   return (
     <>
+      <JsonLd data={serviceSchema("Wall & Floor Tiling", "Professional wall and floor tiling for kitchens, bathrooms and homes in Wellington, Taunton, Tiverton and surrounding areas.", "https://jason-chapman.vercel.app/services/wall-floor-tiling")} />
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center justify-center">
         <Image
