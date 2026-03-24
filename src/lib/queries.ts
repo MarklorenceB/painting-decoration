@@ -135,21 +135,25 @@ export const AREA_PAGES_QUERY = `
     page(id: 11, idType: DATABASE_ID) {
       areaPages {
         areaWellingtonHero { ${IMG_FRAGMENT} }
+        areaWellingtonWhyChoose { ${IMG_FRAGMENT} }
         areaWellingtonImg1 { ${IMG_FRAGMENT} }
         areaWellingtonImg2 { ${IMG_FRAGMENT} }
         areaWellingtonImg3 { ${IMG_FRAGMENT} }
         areaWellingtonImg4 { ${IMG_FRAGMENT} }
         areaTauntonHero { ${IMG_FRAGMENT} }
+        areaTauntonWhyChoose { ${IMG_FRAGMENT} }
         areaTauntonImg1 { ${IMG_FRAGMENT} }
         areaTauntonImg2 { ${IMG_FRAGMENT} }
         areaTauntonImg3 { ${IMG_FRAGMENT} }
         areaTauntonImg4 { ${IMG_FRAGMENT} }
         areaTivertonHero { ${IMG_FRAGMENT} }
+        areaTivertonWhyChoose { ${IMG_FRAGMENT} }
         areaTivertonImg1 { ${IMG_FRAGMENT} }
         areaTivertonImg2 { ${IMG_FRAGMENT} }
         areaTivertonImg3 { ${IMG_FRAGMENT} }
         areaTivertonImg4 { ${IMG_FRAGMENT} }
         areaBridgwaterHero { ${IMG_FRAGMENT} }
+        areaBridgwaterWhyChoose { ${IMG_FRAGMENT} }
         areaBridgwaterImg1 { ${IMG_FRAGMENT} }
         areaBridgwaterImg2 { ${IMG_FRAGMENT} }
         areaBridgwaterImg3 { ${IMG_FRAGMENT} }

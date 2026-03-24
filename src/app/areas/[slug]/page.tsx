@@ -45,6 +45,7 @@ interface AreaData {
   whyLocal: string;
   nearby: string[];
   heroImage: string;
+  whyChooseImage: string;
   introImages: [string, string, string, string];
   testimonial: { text: string; name: string; location: string };
 }
@@ -65,6 +66,7 @@ const areas: Record<string, AreaData> = {
       "Being based in Wellington means less travel time and more flexibility for your project. Jason has worked on homes throughout Wellington — from Victorian terraces in the town centre to modern estates on the outskirts. He understands the local architecture and the specific needs of Somerset properties.",
     nearby: ["Taunton", "Tiverton", "Bridgwater", "Milverton", "Wiveliscombe"],
     heroImage: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1600&q=80",
+    whyChooseImage: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1600&q=80",
     introImages: [
       "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
       "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80",
@@ -93,6 +95,7 @@ const areas: Record<string, AreaData> = {
     nearby: ["Wellington", "Bridgwater", "North Petherton", "Bishops Lydeard", "Wiveliscombe"],
     heroImage:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
+    whyChooseImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1600&q=80",
     introImages: [
       "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
       "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80",
@@ -121,6 +124,7 @@ const areas: Record<string, AreaData> = {
     nearby: ["Wellington", "Cullompton", "Bampton", "Crediton", "Honiton"],
     heroImage:
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80",
+    whyChooseImage: "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=1600&q=80",
     introImages: [
       "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
       "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80",
@@ -149,6 +153,7 @@ const areas: Record<string, AreaData> = {
     nearby: ["Taunton", "Wellington", "North Petherton", "Burnham-on-Sea", "Highbridge"],
     heroImage:
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
+    whyChooseImage: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
     introImages: [
       "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
       "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80",
@@ -250,6 +255,9 @@ export default async function AreaPage({
 
   // Resolve hero image
   const hero = img(cms[`${prefix}Hero`], area.heroImage);
+
+  // Resolve "Why Choose" background image (separate from hero)
+  const whyChoose = img(cms[`${prefix}WhyChoose`], area.whyChooseImage);
 
   // Resolve intro grid images (4)
   const introImgs = [
@@ -479,7 +487,7 @@ export default async function AreaPage({
       {/* Why choose local — dark section with background image */}
       <section className="relative py-section-lg px-4 sm:px-6 lg:px-8 overflow-hidden">
         <Image
-          src={hero.src}
+          src={whyChoose.src}
           alt=""
           fill
           className="object-cover"
