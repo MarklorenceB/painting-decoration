@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Phone, MapPin } from "lucide-react";
 
-export default function Footer({ phone = "07903 197937" }: { phone?: string }) {
+export default function Footer({ phone = "07473 124611" }: { phone?: string }) {
   return (
     <footer className="bg-slate-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">

@@ -62,7 +62,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const data = await fetchGraphQL<SiteSettingsData>(SITE_SETTINGS_QUERY);
-  const phone = data?.page?.homePage?.phoneNumber || "07903 197937";
+  const phone = data?.page?.homePage?.phoneNumber || "07473 124611";
 
   return (
     <html lang="en">

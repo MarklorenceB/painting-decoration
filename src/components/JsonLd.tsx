@@ -19,7 +19,7 @@ export const localBusinessSchema = {
   description:
     "Professional painter, decorator and tiler based in Wellington, Somerset. Interior and exterior painting, decorating, and wall & floor tiling for homes across Wellington, Taunton, Tiverton and surrounding areas.",
   url: "https://jason-chapman.vercel.app",
-  telephone: "07903 197937",
+  telephone: "07473 124611",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Wellington",

@@ -6,7 +6,7 @@ import ContactPageClient from "./ContactPageClient";
 export const metadata: Metadata = {
   title: "Contact Jason Chapman | Free Quote",
   description:
-    "Get in touch for a free, no-obligation quote on painting, decorating or tiling in Wellington, Taunton, Tiverton and surrounding areas. Call 07903 197937.",
+    "Get in touch for a free, no-obligation quote on painting, decorating or tiling in Wellington, Taunton, Tiverton and surrounding areas. Call 07473 124611.",
 };
 
 interface ContactPageData {
@@ -33,7 +33,7 @@ export default async function ContactPage() {
 
   const heading = cp?.contactHeading || "Get in touch with Jason";
   const subtext = cp?.contactSubtext || "Looking for an interior painter, decorator or tiler in Wellington, Taunton, Tiverton or the surrounding area? Get in touch to discuss your project and request a quote.";
-  const phone = cp?.contactPhone || hp?.phoneNumber || "07903 197937";
+  const phone = cp?.contactPhone || hp?.phoneNumber || "07473 124611";
   const areas = cp?.contactAreas || "Wellington, Taunton, Tiverton and surrounding areas.";
   const reviewCount = hp?.mybuilderReviewCount ?? 91;
   const mybuilderUrl = hp?.mybuilderUrl || "https://www.mybuilder.com/profile/jason_chapman_tiling_painting_decorating/reviews";

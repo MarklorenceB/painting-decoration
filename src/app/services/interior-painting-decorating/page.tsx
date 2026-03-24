@@ -95,7 +95,7 @@ export default async function InteriorPaintingDecoratingPage() {
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              href="tel:07903197937"
+              href="tel:07473124611"
               className="inline-flex items-center gap-2 border-2 border-white text-white hover:bg-white/10 px-8 py-4 min-h-[44px] rounded-lg font-bold transition-colors"
             >
               <Phone className="h-4 w-4" />
@@ -240,11 +240,11 @@ export default async function InteriorPaintingDecoratingPage() {
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              href="tel:07903197937"
+              href="tel:07473124611"
               className="inline-flex items-center gap-2 border-2 border-white text-white hover:bg-white/10 px-8 py-4 min-h-[44px] rounded-lg font-bold transition-colors"
             >
               <Phone className="h-4 w-4" />
-              Call 07903 197937
+              Call 07473 124611
             </Link>
           </div>
         </div>
