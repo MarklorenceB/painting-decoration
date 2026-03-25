@@ -46,4 +46,5 @@ next-env.d.ts
 # misc artifacts
 bash.exe.stackdump
 *.png
+!src/app/apple-icon.png
 tmp-snippet.json
