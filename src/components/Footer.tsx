@@ -100,16 +100,6 @@ export default function Footer({ phone = "07473 124611" }: { phone?: string }) {
               </Link>
             </li>
             <li>
-              <Link href="/areas/bishops-lydeard" className="hover:text-primary transition-colors flex items-center gap-2">
-                <MapPin className="h-3 w-3 shrink-0" /> Bishops Lydeard
-              </Link>
-            </li>
-            <li>
-              <Link href="/areas/wiveliscombe" className="hover:text-primary transition-colors flex items-center gap-2">
-                <MapPin className="h-3 w-3 shrink-0" /> Wiveliscombe
-              </Link>
-            </li>
-            <li>
               <Link href="/areas/burnham-on-sea" className="hover:text-primary transition-colors flex items-center gap-2">
                 <MapPin className="h-3 w-3 shrink-0" /> Burnham-on-Sea
               </Link>

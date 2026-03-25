@@ -79,18 +79,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
     {
-      url: `${BASE_URL}/areas/bishops-lydeard`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${BASE_URL}/areas/wiveliscombe`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
       url: `${BASE_URL}/areas/burnham-on-sea`,
       lastModified: now,
       changeFrequency: "monthly",
