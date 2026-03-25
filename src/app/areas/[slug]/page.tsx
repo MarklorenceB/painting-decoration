@@ -207,7 +207,7 @@ const areas: Record<string, AreaData> = {
       "Full interior and exterior painting and decorating, wallpapering, and kitchen and bathroom tiling. Coastal properties often need extra care with exterior finishes to withstand the salt air — Jason uses quality, durable paints and sealants suited to seaside conditions.",
     whyLocal:
       "Burnham-on-Sea's seafront properties, Victorian villas and modern estates all have different decorating needs. Jason brings nearly 20 years of experience and understands the importance of proper preparation — especially for exterior work exposed to coastal weather. You deal directly with Jason from quote to completion, with no middlemen or subcontractors.",
-    nearby: ["Highbridge", "Bridgwater", "North Petherton", "Taunton", "Wedmore"],
+    nearby: ["Highbridge", "Bridgwater", "North Petherton", "Taunton", "Tiverton"],
     heroImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
     whyChooseImage: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
     introImages: [
@@ -235,7 +235,7 @@ const areas: Record<string, AreaData> = {
       "Interior painting and decorating, exterior house painting, wallpapering, and wall and floor tiling for kitchens and bathrooms. From a quick room refresh to a full property redecoration, Jason delivers a clean, professional finish on every project.",
     whyLocal:
       "Highbridge homeowners benefit from working with an experienced, independent tradesman. Jason has nearly 20 years in the trade and works on his own — meaning you get consistent quality from start to finish. No sales team, no subcontractors, just reliable workmanship and a tidy finish every time.",
-    nearby: ["Burnham-on-Sea", "Bridgwater", "North Petherton", "Taunton", "Wedmore"],
+    nearby: ["Burnham-on-Sea", "Bridgwater", "North Petherton", "Taunton", "Tiverton"],
     heroImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
     whyChooseImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1600&q=80",
     introImages: [

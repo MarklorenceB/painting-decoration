@@ -5,8 +5,8 @@ import { Phone, MapPin } from "lucide-react";
 export default function Footer({ phone = "07473 124611" }: { phone?: string }) {
   return (
     <footer className="bg-slate-900 text-slate-400 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
-        <div>
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="col-span-2 md:col-span-1">
           <div className="flex items-center gap-2 text-white mb-6">
             <Image
               src="/logo.png"
