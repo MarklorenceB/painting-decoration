@@ -158,6 +158,24 @@ export const AREA_PAGES_QUERY = `
         areaBridgwaterImg2 { ${IMG_FRAGMENT} }
         areaBridgwaterImg3 { ${IMG_FRAGMENT} }
         areaBridgwaterImg4 { ${IMG_FRAGMENT} }
+        areaNorthPethertonHero { ${IMG_FRAGMENT} }
+        areaNorthPethertonWhyChoose { ${IMG_FRAGMENT} }
+        areaNorthPethertonImg1 { ${IMG_FRAGMENT} }
+        areaNorthPethertonImg2 { ${IMG_FRAGMENT} }
+        areaNorthPethertonImg3 { ${IMG_FRAGMENT} }
+        areaNorthPethertonImg4 { ${IMG_FRAGMENT} }
+        areaBurnhamOnSeaHero { ${IMG_FRAGMENT} }
+        areaBurnhamOnSeaWhyChoose { ${IMG_FRAGMENT} }
+        areaBurnhamOnSeaImg1 { ${IMG_FRAGMENT} }
+        areaBurnhamOnSeaImg2 { ${IMG_FRAGMENT} }
+        areaBurnhamOnSeaImg3 { ${IMG_FRAGMENT} }
+        areaBurnhamOnSeaImg4 { ${IMG_FRAGMENT} }
+        areaHighbridgeHero { ${IMG_FRAGMENT} }
+        areaHighbridgeWhyChoose { ${IMG_FRAGMENT} }
+        areaHighbridgeImg1 { ${IMG_FRAGMENT} }
+        areaHighbridgeImg2 { ${IMG_FRAGMENT} }
+        areaHighbridgeImg3 { ${IMG_FRAGMENT} }
+        areaHighbridgeImg4 { ${IMG_FRAGMENT} }
         areaServiceInteriorImg { ${IMG_FRAGMENT} }
         areaServiceExteriorImg { ${IMG_FRAGMENT} }
         areaServiceTilingImg { ${IMG_FRAGMENT} }
