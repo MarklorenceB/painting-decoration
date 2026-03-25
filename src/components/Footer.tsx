@@ -94,6 +94,21 @@ export default function Footer({ phone = "07473 124611" }: { phone?: string }) {
                 <MapPin className="h-3 w-3 shrink-0" /> Bridgwater
               </Link>
             </li>
+            <li>
+              <Link href="/areas/north-petherton" className="hover:text-primary transition-colors flex items-center gap-2">
+                <MapPin className="h-3 w-3 shrink-0" /> North Petherton
+              </Link>
+            </li>
+            <li>
+              <Link href="/areas/bishops-lydeard" className="hover:text-primary transition-colors flex items-center gap-2">
+                <MapPin className="h-3 w-3 shrink-0" /> Bishops Lydeard
+              </Link>
+            </li>
+            <li>
+              <Link href="/areas/wiveliscombe" className="hover:text-primary transition-colors flex items-center gap-2">
+                <MapPin className="h-3 w-3 shrink-0" /> Wiveliscombe
+              </Link>
+            </li>
           </ul>
         </div>
 

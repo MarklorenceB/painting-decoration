@@ -166,6 +166,90 @@ const areas: Record<string, AreaData> = {
       location: "Bridgwater",
     },
   },
+  "north-petherton": {
+    slug: "north-petherton",
+    name: "North Petherton",
+    county: "Somerset",
+    cmsPrefix: "areaNorthPetherton",
+    description:
+      "Painter, decorator and tiler serving North Petherton, Somerset. Interior & exterior painting, decorating and tiling. Based in nearby Wellington. Free quotes.",
+    intro:
+      "Jason Chapman provides painting, decorating and tiling services to homeowners in North Petherton and the surrounding Somerset villages. Based in Wellington, North Petherton is a short drive along the A38 and a regular part of Jason's working area.",
+    services:
+      "Interior and exterior painting, wallpapering, and wall and floor tiling for kitchens and bathrooms. Whether you need a single room freshened up or a full property makeover, Jason delivers a tidy, professional finish with nearly 20 years of experience behind every job.",
+    whyLocal:
+      "North Petherton's mix of older village properties and newer builds each need a different touch. Jason works independently — no salespeople, no subcontractors — so you deal directly with the person doing the work. He has completed projects across North Petherton and neighbouring villages, delivering reliable results and a clean finish every time.",
+    nearby: ["Bridgwater", "Taunton", "Wellington", "Burnham-on-Sea", "Highbridge"],
+    heroImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
+    whyChooseImage: "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=1600&q=80",
+    introImages: [
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
+      "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80",
+      "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80",
+    ],
+    testimonial: {
+      text: "Jason repainted the outside of our house and it looks like new. Very thorough preparation, tidy worker and a really good finish. Highly recommended.",
+      name: "Paul R.",
+      location: "North Petherton",
+    },
+  },
+  "bishops-lydeard": {
+    slug: "bishops-lydeard",
+    name: "Bishops Lydeard",
+    county: "Somerset",
+    cmsPrefix: "areaBishopsLydeard",
+    description:
+      "Painter, decorator and tiler serving Bishops Lydeard, Somerset. Interior & exterior painting, decorating and tiling. Based in nearby Wellington. Free quotes.",
+    intro:
+      "Jason Chapman offers painting, decorating and tiling services to homeowners in Bishops Lydeard and the surrounding Quantock villages. Based in Wellington — just a few miles away — Bishops Lydeard is one of Jason's closest working areas, meaning quick response times and flexible scheduling.",
+    services:
+      "Full interior and exterior painting and decorating, wallpapering, and kitchen and bathroom tiling. From refreshing a cottage bedroom to repainting the exterior of a period property, Jason brings careful preparation and a professional finish to every job in Bishops Lydeard.",
+    whyLocal:
+      "Bishops Lydeard sits at the foot of the Quantock Hills with a mix of traditional stone cottages, period homes and modern properties. Jason understands the care needed for older buildings — proper preparation, breathable paints where required, and finishes sympathetic to the character of the property. As an independent tradesman, you get personal attention and direct communication throughout.",
+    nearby: ["Taunton", "Wellington", "Wiveliscombe", "Milverton", "Williton"],
+    heroImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80",
+    whyChooseImage: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1600&q=80",
+    introImages: [
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
+      "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80",
+      "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80",
+    ],
+    testimonial: {
+      text: "Jason wallpapered our feature wall and painted the rest of the room. Lovely neat job, very polite and cleaned up perfectly afterwards. Would use again.",
+      name: "Helen M.",
+      location: "Bishops Lydeard",
+    },
+  },
+  wiveliscombe: {
+    slug: "wiveliscombe",
+    name: "Wiveliscombe",
+    county: "Somerset",
+    cmsPrefix: "areaWiveliscombe",
+    description:
+      "Painter, decorator and tiler serving Wiveliscombe, Somerset. Interior & exterior painting, decorating and tiling. Based in nearby Wellington. Free quotes.",
+    intro:
+      "Jason Chapman provides painting, decorating and tiling services to homeowners in Wiveliscombe and the surrounding Somerset countryside. Based in Wellington — just 6 miles away — Wiveliscombe is one of Jason's closest working areas.",
+    services:
+      "Interior painting and decorating, exterior house painting, wallpapering, and wall and floor tiling for kitchens and bathrooms. Jason handles all types of residential decorating work, from a quick room refresh to a complete renovation, with the same attention to detail on every project.",
+    whyLocal:
+      "Wiveliscombe is a small town with character — stone-built properties, traditional cottages and family homes that deserve a decorator who takes the time to get the finish right. Jason's nearly 20 years of experience means he understands how to work with older properties as well as modern builds. Being based just down the road in Wellington, there's no long travel time added to your quote.",
+    nearby: ["Wellington", "Taunton", "Bishops Lydeard", "Milverton", "Dulverton"],
+    heroImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
+    whyChooseImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1600&q=80",
+    introImages: [
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
+      "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80",
+      "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80",
+    ],
+    testimonial: {
+      text: "Jason tiled our bathroom floor and walls and painted the rest of the room. Excellent workmanship, very reliable and the finish is superb. Wouldn't hesitate to recommend.",
+      name: "David & Sue L.",
+      location: "Wiveliscombe",
+    },
+  },
 };
 
 const serviceCards = [
