@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ReviewsFloatingTab from "@/components/ReviewsFloatingTab";
+import CookieConsent from "@/components/CookieConsent";
 import JsonLd, { localBusinessSchema } from "@/components/JsonLd";
 import { fetchGraphQL } from "@/lib/wordpress";
 
@@ -73,6 +74,7 @@ export default async function RootLayout({
           <main className="flex-grow">{children}</main>
           <Footer phone={phone} />
           <ReviewsFloatingTab />
+          <CookieConsent />
         </div>
       </body>
     </html>
