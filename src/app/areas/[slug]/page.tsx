@@ -250,6 +250,62 @@ const areas: Record<string, AreaData> = {
       location: "Wiveliscombe",
     },
   },
+  "burnham-on-sea": {
+    slug: "burnham-on-sea",
+    name: "Burnham-on-Sea",
+    county: "Somerset",
+    cmsPrefix: "areaBurnhamOnSea",
+    description:
+      "Painter, decorator and tiler serving Burnham-on-Sea, Somerset. Interior & exterior painting, decorating and tiling. Based in nearby Wellington. Free quotes.",
+    intro:
+      "Jason Chapman provides painting, decorating and tiling services to homeowners in Burnham-on-Sea and along the Somerset coast. Based in Wellington, Burnham-on-Sea is within easy reach and part of Jason's regular working area.",
+    services:
+      "Full interior and exterior painting and decorating, wallpapering, and kitchen and bathroom tiling. Coastal properties often need extra care with exterior finishes to withstand the salt air — Jason uses quality, durable paints and sealants suited to seaside conditions.",
+    whyLocal:
+      "Burnham-on-Sea's seafront properties, Victorian villas and modern estates all have different decorating needs. Jason brings nearly 20 years of experience and understands the importance of proper preparation — especially for exterior work exposed to coastal weather. You deal directly with Jason from quote to completion, with no middlemen or subcontractors.",
+    nearby: ["Highbridge", "Bridgwater", "North Petherton", "Taunton", "Wedmore"],
+    heroImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
+    whyChooseImage: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80",
+    introImages: [
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
+      "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80",
+      "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80",
+    ],
+    testimonial: {
+      text: "Jason painted the exterior of our seafront bungalow. He prepared everything properly and the finish has held up brilliantly. Very pleased with the result.",
+      name: "Tony & Linda G.",
+      location: "Burnham-on-Sea",
+    },
+  },
+  highbridge: {
+    slug: "highbridge",
+    name: "Highbridge",
+    county: "Somerset",
+    cmsPrefix: "areaHighbridge",
+    description:
+      "Painter, decorator and tiler serving Highbridge, Somerset. Interior & exterior painting, decorating and tiling. Based in nearby Wellington. Free quotes.",
+    intro:
+      "Jason Chapman offers painting, decorating and tiling services to homeowners in Highbridge and the surrounding area. Based in Wellington, Highbridge is easily accessible via the M5 and forms part of Jason's regular working area across Somerset.",
+    services:
+      "Interior painting and decorating, exterior house painting, wallpapering, and wall and floor tiling for kitchens and bathrooms. From a quick room refresh to a full property redecoration, Jason delivers a clean, professional finish on every project.",
+    whyLocal:
+      "Highbridge homeowners benefit from working with an experienced, independent tradesman. Jason has nearly 20 years in the trade and works on his own — meaning you get consistent quality from start to finish. No sales team, no subcontractors, just reliable workmanship and a tidy finish every time.",
+    nearby: ["Burnham-on-Sea", "Bridgwater", "North Petherton", "Taunton", "Wedmore"],
+    heroImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80",
+    whyChooseImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1600&q=80",
+    introImages: [
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&q=80",
+      "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80",
+      "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80",
+    ],
+    testimonial: {
+      text: "Jason decorated our kitchen and hallway. Excellent work — neat, tidy and finished to a really high standard. Would definitely recommend to anyone in the area.",
+      name: "Karen S.",
+      location: "Highbridge",
+    },
+  },
 };
 
 const serviceCards = [
